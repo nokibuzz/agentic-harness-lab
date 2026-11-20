@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interaktivni POC za učenje harness engineeringa: loopovi, grafovi, trijaža, verifikacija, modeli i put izgradnje agenta.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315201d'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23c9ef6b' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%23c9ef6b' stroke-width='3'/%3E%3C/svg%3E">
+  <title>Harness Lab — mapa agentic razvoja</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./factory.css">
+  <script src="./app.js" defer></script>
+  <script src="./factory.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navigacija">
+      <a class="brand" href="#pocetak"><span class="brand-mark">◎</span><span>HARNESS <b>LAB</b><small>INTERAKTIVNI VODIČ / 2026</small></span></a>
+      <div class="side-caption">ISTRAŽI</div>
+      <nav class="side-nav">
+        <a href="#pocetak" class="active"><span>01</span> Početak</a>
+        <a href="#fabrika"><span>02</span> Factory loop</a>
+        <a href="#ucenje"><span>03</span> Plan učenja</a>
+        <a href="#arhitektura"><span>04</span> Arhitektura</a>
+        <a href="#simulator"><span>05</span> Simulacija</a>
+        <a href="#modeli"><span>06</span> Izbor modela</a>
+        <a href="#prakse"><span>07</span> Prakse</a>
+        <a href="#plan"><span>08</span> Plan izgradnje</a>
+        <a href="#izvori"><span>09</span> Izvori</a>
+      </nav>
+      <div class="side-bottom"><span class="live-dot"></span> OFFLINE POC<br><small>Bez naloga, tokena i API poziva</small></div>
+    </aside>
+
+    <main>
+      <header class="topbar"><span>VODIČ ZA AGENTIC DEVELOPERA</span><span>AŽURIRANO 20. 11. 2026. <span class="top-sep">/</span> SR</span></header>
+
+      <section id="pocetak" class="hero section">
+        <div class="eyebrow"><span class="live-dot"></span> INTERAKTIVNI MODEL SISTEMA</div>
+        <h1>Od zahteva do<br><em>proverenog</em> mergea.</h1>
+        <p class="lead">Harness je izvršno okruženje oko modela. Loop vraća rezultat na proveru i ponavlja korak. Graph određuje redosled, grananja i granice autonomije. Ovaj projekat pokazuje kako te tri stvari čine sistem za tikete, PR-ove i zakazane poslove.</p>
+        <div class="hero-actions"><a class="button primary" href="#fabrika">Počni factory loop</a><a class="button subtle" href="#ucenje">Pogledaj plan učenja</a></div>
+        <div class="metrics"><div><strong>03</strong><span>ULAZA<br>chat · terminal · raspored</span></div><div><strong>02</strong><span>PETLJE<br>rad · učenje sistema</span></div><div><strong>01</strong><span>MERILO<br>dokaz da radi</span></div></div>
+        <div class="hero-note">Ovo je obrazovni model. Simulacija ne čita repozitorijum i ne otvara tikete ili PR-ove.</div>
+      </section>
+
+      <section id="fabrika" class="section content-section factory-section">
+        <div class="section-heading"><div><div class="kicker">NOVO / ZACH LLOYD</div><h2>Fabrika koja meri sebe.</h2></div><p>Objava sa slike opisuje pet alata za poboljšanje coding agenata. Redosled zavisi od temelja: verzionisana konfiguracija i sačuvani tragovi izvršavanja.</p></div>
+        <div class="foundation-card"><div><small>PREDUSLOV / FACTORY-AS-CODE</small><h3>Prvo zapiši fabriku kao kod.</h3><p>Definiši ulaze, workflow, modele, skills, sandbox, dozvole, rubrike i merge pravila u verzionisanim fajlovima. Svaki run čuva verziju konfiguracije, početni commit, trace, diff, testove i trošak.</p></div><pre><code>factory/
+  workflow.yaml
+  routing.yaml
+  scorers/
+  benchmarks/
+  experiments/</code></pre></div>
+        <div class="factory-rail" role="tablist" aria-label="Pet koraka factory engineeringa">
+          <button class="factory-tab active" data-factory="evals" role="tab" aria-selected="true"><span>01</span><strong>Online evals</strong><small>Kako je run prošao?</small></button>
+          <button class="factory-tab" data-factory="improve" role="tab" aria-selected="false"><span>02</span><strong>Self-improvement</strong><small>Zašto je pao?</small></button>
+          <button class="factory-tab" data-factory="benchmark" role="tab" aria-selected="false"><span>03</span><strong>Benchmarks</strong><small>Da li je izmena bolja?</small></button>
+          <button class="factory-tab" data-factory="routing" role="tab" aria-selected="false"><span>04</span><strong>Model routing</strong><small>Kome dati sledeći posao?</small></button>
+          <button class="factory-tab" data-factory="ab" role="tab" aria-selected="false"><span>05</span><strong>A/B test</strong><small>Radi li i ubuduće?</small></button>
+        </div>
+        <div class="factory-detail" id="factory-detail" role="tabpanel" aria-live="polite"></div>
+        <div class="factory-formula"><b>Petlja poboljšanja</b><span>run + artefakti → scorer + ljudska provera → obrazac greške → promena konfiguracije → replay benchmark → kontrolisani rollout → novi run</span></div>
+        <div class="measurement-lab"><div><div class="kicker">MALI LAB / ILUSTRATIVNI PODACI</div><h3>Razlikuj trag od ishoda.</h3><p>Izaberi primer runa. Simulirani scorer gleda proces, ali konačna ocena mora uključiti stvarni rezultat i ljudsku kalibraciju.</p><label for="run-case">Primer runa</label><select id="run-case"><option value="green">Zeleni testovi, pokvaren UI</option><option value="noisy">Ispravan fix, suvišni testovi</option><option value="clean">Ispravan fix i provera u browseru</option></select></div><div class="run-result" id="run-result" aria-live="polite"></div></div>
+      </section>
+
+      <section id="ucenje" class="section content-section learning-section dark-section">
+        <div class="section-heading"><div><div class="kicker">KURIKULUM / OSAM NEDELJA</div><h2>Tačan redosled učenja.</h2></div><p>Četiri sesije nedeljno, 60–90 minuta po sesiji. Svaka nedelja završava artefaktom i uslovom prolaza. Detaljni zadaci i šabloni su u vodiču u repozitorijumu.</p></div>
+        <div class="learning-summary"><span>32 SESIJE</span><span>8 PROVERLJIVIH ARTEFAKATA</span><span>1 ZAVRŠNI MINI EKSPERIMENT</span></div>
+        <div id="learning-weeks" class="learning-weeks"></div>
+        <p class="learning-note">Ovo je plan za učenje uz offline primere. Kad kasnije povežeš pravi agent, koristi iste rubrike i kontrole na svom repozitorijumu. <a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/UCENJE.md" target="_blank" rel="noopener noreferrer">Kompletan plan sa šablonima</a> · <a href="https://github.com/nokibuzz/agentic-harness-lab/tree/main/vezbe" target="_blank" rel="noopener noreferrer">Početna vežba sa osam runova</a>.</p>
+      </section>
+
+      <section id="arhitektura" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">01 / SISTEM</div><h2>Jedan motor, tri ulaza.</h2></div><p>Chat, CLI i scheduler samo kreiraju isti tip zahteva. Odluke i dokazi se čuvaju u zajedničkom toku rada.</p></div>
+        <div class="diagram-toolbar"><span class="toolbar-label">KLIKNI NA ČVOR ZA OBJAŠNJENJE</span><div class="legend"><span><i class="dot violet"></i> ulaz</span><span><i class="dot cyan"></i> odluka</span><span><i class="dot lime"></i> dokaz</span></div></div>
+        <div class="architecture" aria-label="Graf budućeg agentnog sistema">
+          <div class="graph-row inputs"><button class="node violet" data-node="chat"><small>TRIGGER</small><strong>Chat</strong><span>„Analiziraj ovaj bug“</span></button><button class="node violet" data-node="cli"><small>TRIGGER</small><strong>Terminal</strong><span>agent run ticket-42</span></button><button class="node violet" data-node="schedule"><small>TRIGGER</small><strong>Schedule</strong><span>09:00 · dnevni scan</span></button></div>
+          <div class="connector"><span>↓</span></div>
+          <div class="graph-row"><button class="node wide cyan selected" data-node="inbox"><small>DETERMINISTIČKI SLOJ</small><strong>Ulaz i trijaža</strong><span>Normalizuj · dedupliraj · klasifikuj · napravi tiket</span></button><button class="node cyan" data-node="queue"><small>ODLUKA</small><strong>Prioritet i red</strong><span>Uticaj × hitnost × pouzdanost</span></button></div>
+          <div class="connector"><span>↓</span></div>
+          <div class="graph-row"><button class="node" data-node="worker"><small>INNER LOOP</small><strong>Radnik u sandboxu</strong><span>Reprodukuj → planiraj → izmeni</span></button><button class="node" data-node="verify"><small>POVRATNA SPREGA</small><strong>Verifikacija</strong><span>Testovi · Playwright · dokaz</span></button><button class="node" data-node="review"><small>NEZAVISAN POGLED</small><strong>PR review</strong><span>Diff · rizik · CI · nalaz</span></button></div>
+          <div class="loop-strip"><span>↶</span> Ako provera padne: klasifikuj uzrok, vrati radniku, ograniči pokušaje i eskaliraj.</div>
+          <div class="graph-row"><button class="node lime" data-node="gate"><small>POLITIKA</small><strong>Merge gate</strong><span>Nizak rizik + svi dokazi → auto</span></button><button class="node lime" data-node="observe"><small>OUTER LOOP</small><strong>Posmatraj rezultat</strong><span>Telemetrija · rollback · nova lekcija</span></button></div>
+        </div>
+        <div class="node-detail" id="node-detail" aria-live="polite"></div>
+        <div class="principle-grid"><div><b>Harness</b><p>Alati, dozvole, sandbox, kontekst, stanje i zapis izvršavanja.</p></div><div><b>Loop</b><p>Ciklus <code>akcija → merenje → korekcija</code> sa uslovom zaustavljanja.</p></div><div><b>Graph</b><p>Eksplicitni čvorovi, uslovi prelaza, paralelni rad i tačke odobrenja.</p></div></div>
+      </section>
+
+      <section id="simulator" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">02 / VEŽBA</div><h2>Prođi kroz workflow.</h2></div><p>Izaberi realističan događaj i prati odluke. Primeri su izmišljeni, a pravila izvedena iz istraženih praksi.</p></div>
+        <div class="scenario-tabs" role="tablist" aria-label="Scenario"><button class="scenario-tab active" data-scenario="bug" role="tab" aria-selected="true">01 / Prijavljen bug</button><button class="scenario-tab" data-scenario="pr" role="tab" aria-selected="false">02 / Novi PR</button><button class="scenario-tab" data-scenario="scan" role="tab" aria-selected="false">03 / Jutarnji scan</button></div>
+        <div class="sim-layout"><div class="sim-left"><div class="sim-meta" id="sim-meta"></div><h3 id="sim-title"></h3><p id="sim-intro"></p><div class="ticket-card"><small>STRUKTURIRANI TIKET</small><div id="ticket-content"></div></div><div class="sim-controls"><button class="button primary" id="next-step">Sledeći korak <span>→</span></button><button class="button outline" id="reset-sim">Reset</button></div></div><div class="sim-right"><div class="terminal-head"><span><i></i><i></i><i></i></span> EVENT LOG <b id="sim-progress">0 / 0</b></div><div id="sim-steps" class="sim-steps"></div><div class="sim-outcome" id="sim-outcome" aria-live="polite"></div></div></div>
+        <div class="gate-callout"><span class="gate-icon">◇</span><div><b>Pravilo za auto-merge</b><p>Dozvoli ga tek za unapred definisane promene malog rizika, uz sveže CI rezultate, nezavisnu proveru, dokaz ponašanja i automatski rollback. Za auth, plaćanja, migracije, pristup podacima i nejasne nalaze traži čoveka.</p></div></div>
+      </section>
+
+      <section id="modeli" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">03 / ROUTING</div><h2>Koji model i koliko razmišljanja?</h2></div><p>Prvo izmeri zadatak. Model i reasoning effort su dve odvojene poluge. Cena po tokenu nije isto što i cena uspešno završenog tiketa.</p></div>
+        <div class="router-layout"><div class="router-panel"><label for="task-type">Vrsta posla</label><select id="task-type"><option value="classify">Klasifikacija i deduplikacija</option><option value="implement">Implementacija jasnog tiketa</option><option value="debug">Nejasan ili višeslojni bug</option><option value="review">Nezavisan PR review</option><option value="architecture">Arhitektura ili incident</option></select><label for="risk">Rizik promene <output id="risk-value">2</output>/5</label><input id="risk" type="range" min="1" max="5" value="2"><label for="clarity">Jasnoća kriterijuma <output id="clarity-value">4</output>/5</label><input id="clarity" type="range" min="1" max="5" value="4"><label for="volume">Obim ponavljanja <output id="volume-value">3</output>/5</label><input id="volume" type="range" min="1" max="5" value="3"><p class="router-hint">Pomeri kontrole. Rezultat je početna hipoteza za tvoj eval skup, ne benchmark provajdera.</p></div><div class="router-result" aria-live="polite"><div class="route-top"><span>PREPORUČENA RUTA</span><span id="route-tier" class="route-pill"></span></div><h3 id="route-model"></h3><div class="effort-line"><span>Reasoning effort</span><strong id="route-effort"></strong></div><p id="route-why"></p><div class="route-example" id="route-examples"></div><div class="route-rule"><b>Pravilo eskalacije</b><span id="route-escalation"></span></div></div></div>
+        <div class="model-grid"><article><span class="model-tag">EKONOMIČAN SLOJ</span><h3>Luna / DeepSeek Flash</h3><p>Ekstrakcija, označavanje, sažeci i ponovljive provere s jasnom šemom. Validiraj JSON i uzorkuj greške.</p></article><article><span class="model-tag">RADNI SLOJ</span><h3>Sol / Sonnet / Grok 4.6</h3><p>Implementacija, tehnička analiza i rad s alatima. Uporedi ih na istim tiketime i istom harnessu.</p></article><article><span class="model-tag">ESKALACIJA</span><h3>Astra / Opus / jači model</h3><p>Nejasni uzroci, arhitektura, sigurnosni rizik i sporni review. Pojačaj effort tek kad merenje pokaže korist.</p></article></div>
+        <p class="fine-print">Nazivi i dostupnost modela menjaju se. Grok 4.6 je potvrđen u xAI dokumentaciji; DeepSeek API trenutno navodi Flash i V4-Pro. Ne poredi modele po marketingu ili jednom primeru: meri prolaznost, latency, ukupne troškove i broj intervencija na svojoj bateriji tiketa.</p>
+      </section>
+
+      <section id="prakse" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">04 / PRINCIPI</div><h2>Šta rade dobri agentic timovi.</h2></div><p>Sažetak primarnih izvora. Svaka praksa je pretvorena u pravilo koje možeš kasnije kodirati.</p></div>
+        <div class="practice-grid"><article><span>01</span><h3>Definiši „gotovo“ unapred</h3><p>Tiket mora imati reprodukciju, očekivano ponašanje, granice izmene i dokaz prihvatanja.</p><small>Anthropic · pstack</small></article><article><span>02</span><h3>Dokaz u stvarnoj aplikaciji</h3><p>Unit test i build nisu dovoljni za UI. Pusti Playwright ili computer-use da prođe korisnički tok.</p><small>Meta Forum · Anthropic · Lauren/pstack</small></article><article><span>03</span><h3>Pravila u kodu, ne samo u promptu</h3><p>Tipovi, lint, CI, arhitekturne granice i dozvole sprečavaju ponavljanje istih grešaka.</p><small>OpenAI Harness Engineering · Meta</small></article><article><span>04</span><h3>Tanak orkestrator</h3><p>Routing, deduplikacija i gates su deterministički; model dobija samo posao za koji treba zaključivanje.</p><small>Meta Thin Orchestrator</small></article><article><span>05</span><h3>Nezavisan reviewer</h3><p>Reviewer ispituje diff, testove i pretpostavke, sa dovoljno drugačijim kontekstom da ne potvrdi automatski autora.</p><small>Cursor Bugbot · OpenAI</small></article><article><span>06</span><h3>Uči iz svake greške</h3><p>Svaki false positive, regresija i neuspeo run postaju eval slučaj ili nova mehanička zaštita.</p><small>OpenAI · Meta · pstack</small></article></div>
+        <div class="anti-patterns"><div><span>IZBEGNI</span><b>„Najbrži mogući patch“</b><p>Lauren upozorava da loš lokalni obrazac budući agenti mogu kopirati. Traži najmanju <em>ispravnu</em> promenu uz objašnjen blast radius.</p></div><div><span>IZBEGNI</span><b>„Agent je rekao da je gotovo“</b><p>Rezultat je stanje sistema i sačuvan dokaz, ne završna poruka modela. Bez merenja nema zatvorene petlje.</p></div></div>
+      </section>
+
+      <section id="plan" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">05 / REDOSLED</div><h2>Izgradi sistem u sedam etapa.</h2></div><p>Ovo je plan za budući pravi sistem. Svaka etapa ima konkretan artefakt i uslov da pređeš dalje.</p></div>
+        <div class="roadmap" id="roadmap"></div>
+        <div class="build-note"><b>Minimalna buduća arhitektura</b><code>adapteri (chat / CLI / cron) → event store → policy/router → queue → izolovani worker → verifier → review → merge gate → observability</code><p>Jedan event ID i ticket ID povezuju svaki korak. Retry mora biti idempotentan; stanje mora preživeti restart. Scheduler samo emituje događaj, ne krije poslovnu logiku.</p></div>
+      </section>
+
+      <section id="izvori" class="section content-section sources-section">
+        <div class="section-heading"><div><div class="kicker">06 / ISTRAŽIVANJE</div><h2>Proveri originalne izvore.</h2></div><p>Izvori su javni i direktni. Veze su informativne; ova stranica sama ne kontaktira servise.</p></div>
+        <div class="source-feature"><b>Nova osnova: Zach Lloyd i factory engineering</b><p>Pet koraka je iz objave sa korisničke slike. Zachov detaljniji tekst objašnjava preduslove: factory-as-code, čuvanje traceova i artefakata, pa tek onda evals, improvement, benchmark, routing i A/B.</p><div><a href="https://www.warp.dev/blog/build-production-software-factory" target="_blank" rel="noopener noreferrer">Zachov detaljni tekst</a><a href="https://www.warp.dev/blog/software-factory-as-code" target="_blank" rel="noopener noreferrer">Factory-as-code</a><a href="https://www.warp.dev/blog/warp-factory-benchmarks" target="_blank" rel="noopener noreferrer">Replay benchmark</a><a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices" target="_blank" rel="noopener noreferrer">Kalibracija evala</a></div></div>
+        <div class="source-columns"><div><h3>Ljudi i sistemi</h3><a href="https://x.com/poteto/status/2121646643124809848" target="_blank" rel="noopener noreferrer"><b>Lauren Tan / @poteto</b><span>Objava o šteti brzih zakrpa, 14. novembar 2026. ↗</span></a><a href="https://x.com/poteto/status/2121673563489140863" target="_blank" rel="noopener noreferrer"><b>Lauren Tan / AIE talk</b><span>Javni link na predavanje o kvalitetu i brzini. ↗</span></a><a href="https://github.com/cursor/plugins/tree/main/pstack" target="_blank" rel="noopener noreferrer"><b>pstack / Cursor</b><span>Originalni workflow skills, verification i playbooks. ↗</span></a><a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener noreferrer"><b>OpenAI / Harness Engineering</b><span>Arhitekturne granice, agent-friendly repo i feedback loops. ↗</span></a><a href="https://openai.com/index/open-source-codex-orchestration-symphony/" target="_blank" rel="noopener noreferrer"><b>OpenAI / Symphony</b><span>Tiket board kao kontrolna ravan za agente. ↗</span></a><a href="https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/" target="_blank" rel="noopener noreferrer"><b>Meta Engineering / Forum</b><span>Verifikacija preko testova i vizuelnih provera. ↗</span></a><a href="https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/" target="_blank" rel="noopener noreferrer"><b>Meta / Thin Orchestrator</b><span>Deterministički routing i izolovani stručni agenti. ↗</span></a></div><div><h3>Alati i merenje</h3><a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer"><b>Anthropic / Long-running agents</b><span>Stanje, napredak između sesija i E2E provera. ↗</span></a><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer"><b>Anthropic / Agent evals</b><span>Razlika između traga izvršavanja i stvarnog ishoda. ↗</span></a><a href="https://cursor.com/docs/bugbot" target="_blank" rel="noopener noreferrer"><b>Cursor / Bugbot</b><span>PR review i ograničeni autofix loop. ↗</span></a><a href="https://prod.cursor.com/help/ai-features/automations" target="_blank" rel="noopener noreferrer"><b>Cursor / Automations</b><span>Event i schedule okidači za cloud agente. ↗</span></a><a href="https://openai.com/index/practical-guide-building-gpt-6/" target="_blank" rel="noopener noreferrer"><b>OpenAI / Model guide</b><span>Model, effort, latency i cost per successful task. ↗</span></a><a href="https://docs.x.ai/developers/models/grok-4.6" target="_blank" rel="noopener noreferrer"><b>xAI / Grok 4.6</b><span>Zvanične mogućnosti i podržani effort nivoi. ↗</span></a><a href="https://api-docs.deepseek.com/api/create-chat-completion/" target="_blank" rel="noopener noreferrer"><b>DeepSeek / API modeli</b><span>Trenutna imena modela i thinking kontrola. ↗</span></a></div></div>
+        <p class="source-note">Napomena o atribuciji: koristi se javno objavljena tehnička praksa Mete i OpenAI, a ne neprovereni citati njihovih CTO-a. Laurenin X profil u trenutku istraživanja navodi SpaceXSI i prethodni rad u Cursoru. Pre implementacije ponovo proveri modele, cene, dozvole i API dokumentaciju.</p>
+      </section>
+      <footer><span>HARNESS LAB © 2026</span><span>UČI → MERI → KODIRAJ ZAŠTITNE MEHANIZME</span><a href="#pocetak">Nazad na vrh ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>

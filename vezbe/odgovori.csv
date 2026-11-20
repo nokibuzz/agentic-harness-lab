@@ -1,0 +1,9 @@
+run_id,outcome_success,procedure_score,reason
+r01,no,0,Stvarni korisnicki tok je i dalje pokvaren i nema browser dokaza
+r02,yes,1,Reprodukcija pada pre izmene i prolazi posle nje na poslednjem SHA
+r03,no,0,Dupli tiket je ostao aktivan jer nije uradjena deduplikacija
+r04,yes,1,Nalaz je dokazan negativnim testom i PR je blokiran
+r05,no,0,Lazno pozitivan review nalaz bez reprodukcije
+r06,yes,1,Needs-info je ispravan ishod kada nema reprodukcije i dokazi su zabelezeni
+r07,yes,0.5,Fix radi ali su cetiri testa redundantna
+r08,yes,1,Gate je sprecio merge sa zastarelim CI dokazom

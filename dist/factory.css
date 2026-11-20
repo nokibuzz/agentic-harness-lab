@@ -1,0 +1,62 @@
+.factory-section{background:#f0f5ec}
+.foundation-card{display:grid;grid-template-columns:1.4fr .6fr;gap:28px;padding:29px;background:#dcead6;border:1px solid #c6dac2;border-radius:10px;margin-bottom:28px}
+.foundation-card small{font:12px var(--mono);color:#486949;letter-spacing:.07em}
+.foundation-card h3{font:600 clamp(25px,3vw,36px)/1.1 var(--display);letter-spacing:-.06em;margin:14px 0 10px}
+.foundation-card p{font-size:16px;color:#456049;margin:0}
+.foundation-card pre{margin:0;padding:20px;background:#183025;color:#cceba8;border-radius:7px;overflow:auto;font:14px/1.7 var(--mono)}
+.factory-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-bottom:0}
+.factory-tab{min-width:0;min-height:133px;text-align:left;border:1px solid #c9d6c7;border-bottom:0;border-radius:8px 8px 0 0;background:#e6eee2;color:#25402f;padding:16px;display:flex;flex-direction:column}
+.factory-tab:hover,.factory-tab.active{background:#163126;color:#ecf6e9}
+.factory-tab span{font:12px var(--mono);color:#6d956e;margin-bottom:17px}
+.factory-tab.active span{color:var(--lime)}
+.factory-tab strong{font:600 17px/1.15 var(--display);letter-spacing:-.04em}
+.factory-tab small{font:12px/1.35 var(--body);opacity:.75;margin-top:5px}
+.factory-detail{border:1px solid #c9d6c7;background:#fbfdf9;border-radius:0 0 9px 9px;padding:28px;display:grid;grid-template-columns:.74fr 1.26fr;gap:36px;min-height:255px}
+.factory-detail .factory-stage-label{font:12px var(--mono);letter-spacing:.07em;color:#57855b}
+.factory-detail h3{font:600 clamp(26px,3vw,40px)/1.08 var(--display);letter-spacing:-.06em;margin:12px 0}
+.factory-detail p{font-size:16px;color:#5c7060;margin:0}
+.factory-detail dl{display:grid;grid-template-columns:120px 1fr;gap:12px 15px;margin:0}
+.factory-detail dt{font:12px var(--mono);letter-spacing:.06em;color:#64816b;text-transform:uppercase}
+.factory-detail dd{font-size:15px;line-height:1.5;margin:0;color:#344c3a}
+.factory-formula{display:flex;gap:25px;align-items:flex-start;background:#e1edda;border-radius:7px;padding:18px 22px;margin:17px 0 35px}
+.factory-formula b{font:600 16px var(--display);min-width:150px}
+.factory-formula span{font:13px/1.65 var(--mono);color:#42694c}
+.measurement-lab{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}
+.measurement-lab>div{background:#fff;border:1px solid #d2dfce;border-radius:8px;padding:24px}
+.measurement-lab h3{font:600 26px var(--display);letter-spacing:-.05em;margin:11px 0}
+.measurement-lab p{font-size:15px;color:#5a705e}
+.measurement-lab label{display:block;font-weight:700;font-size:14px;margin:22px 0 8px}
+.measurement-lab select{width:100%;background:#f0f5ec;border:1px solid #bfd0bb;border-radius:5px;padding:11px 32px 11px 12px;color:#243a2a;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%234b6d50' stroke-width='2' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;font-size:14px}
+.run-result h4{font:600 21px var(--display);letter-spacing:-.04em;margin:0 0 16px}
+.run-result .run-facts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.run-result .run-facts>div{background:#f1f6ed;padding:13px;border-radius:5px}
+.run-result .run-facts small{display:block;font:12px var(--mono);color:#6a806a;margin-bottom:6px}
+.run-result .run-facts strong{font-size:15px;color:#2b4a35}
+.run-result p{margin:16px 0 0}
+.run-result .run-decision{border-top:1px solid #d5e1d1;padding-top:12px;color:#2d5939;font-weight:700}
+.learning-summary{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+.learning-summary span{border:1px solid #4b6653;color:#b9d8b0;padding:8px 11px;border-radius:20px;font:12px var(--mono)}
+.learning-weeks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.learning-week{background:#1d3025;border:1px solid #3d5544;border-radius:7px;overflow:hidden}
+.learning-week button{width:100%;background:none;border:0;color:#eff8eb;text-align:left;padding:18px;display:grid;grid-template-columns:55px 1fr 22px;align-items:center;gap:10px}
+.learning-week button:hover{background:#284334}
+.learning-week button span{font:12px var(--mono);color:var(--lime)}
+.learning-week button strong{font:600 18px var(--display);letter-spacing:-.04em}
+.learning-week button i{font-style:normal;font-size:21px;text-align:right}
+.learning-week .week-body{display:none;border-top:1px solid #3d5544;padding:0 18px 18px}
+.learning-week.open .week-body{display:block}
+.learning-week.open button i{transform:rotate(45deg)}
+.week-body ol{padding-left:21px;margin:16px 0}
+.week-body li{font-size:14px;line-height:1.5;color:#d2e2d3;margin:7px 0}
+.week-body p{font-size:14px;color:#b4cbb6;margin:0}
+.week-body b{color:var(--lime)}
+.learning-note{font-size:14px;color:#adbeae;margin:21px 0 0}
+.learning-note a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+.source-feature{background:#dfe9da;border:1px solid #ccddc6;border-radius:8px;padding:23px;margin-bottom:27px}
+.source-feature>b{font:600 22px var(--display);letter-spacing:-.045em}
+.source-feature p{font-size:15px;max-width:760px;color:#566b57;margin:8px 0 16px}
+.source-feature>div{display:flex;flex-wrap:wrap;gap:8px}
+.source-feature a{font-size:13px;font-weight:700;color:#31573b;background:#f5fbf2;border:1px solid #c5dac0;border-radius:5px;padding:9px 12px}
+.source-feature a:hover{background:#cde1c6}
+@media(max-width:1040px){.factory-rail{grid-template-columns:repeat(3,minmax(0,1fr))}.factory-tab{border-bottom:1px solid #c9d6c7;border-radius:7px;min-height:112px}.factory-detail{border-radius:8px}}
+@media(max-width:720px){.foundation-card,.factory-detail,.measurement-lab,.learning-weeks{grid-template-columns:1fr}.foundation-card{padding:21px}.factory-rail{grid-template-columns:repeat(2,minmax(0,1fr))}.factory-tab{min-height:105px;padding:12px}.factory-tab strong{font-size:15px}.factory-tab span{margin-bottom:9px}.factory-detail{padding:20px}.factory-detail dl{grid-template-columns:1fr;gap:5px}.factory-detail dd{margin-bottom:10px}.factory-formula{display:block}.factory-formula span{display:block;margin-top:9px}.measurement-lab>div{padding:20px}.run-result .run-facts{grid-template-columns:1fr}}
