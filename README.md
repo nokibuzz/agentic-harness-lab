@@ -2,6 +2,8 @@
 
 Lokalni, interaktivni POC za učenje harness i factory engineeringa, loopova i workflow grafova. Namenjen je kao vizuelna priprema za budući sistem koji prima zadatke iz chata, terminala i rasporeda, trijažira tikete, priprema PR, proverava rezultat i primenjuje merge politiku.
 
+**Vizuelni prikaz:** [otvori Harness Lab na GitHub Pages](https://nokibuzz.github.io/agentic-harness-lab/).
+
 ## Pokretanje
 
 Otvori `dist/index.html` direktno u browseru. Za lokalni server:
