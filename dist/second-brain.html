@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vizuelni vodič za second brain: izvori, wiki, provera, model routing i veza sa agentic harnessom.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315201d'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23c9ef6b' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%23c9ef6b' stroke-width='3'/%3E%3C/svg%3E">
+  <title>Second Brain — Harness Lab</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./second-brain.css">
+  <script src="./second-brain.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navigacija">
+      <a class="brand" href="./index.html"><span class="brand-mark">◎</span><span>HARNESS <b>LAB</b><small>INTERAKTIVNI VODIČ / 2026</small></span></a>
+      <div class="side-caption">OBLASTI UČENJA</div>
+      <div class="section-switch" aria-label="Oblasti učenja"><a href="./index.html">01 · Harness</a><a class="current" href="./second-brain.html" aria-current="page">02 · Second brain</a></div>
+      <nav class="side-nav">
+        <a href="#uvod" class="active"><span>01</span> Šta je ovo</a>
+        <a href="#tok"><span>02</span> Tok znanja</a>
+        <a href="#repoi"><span>03</span> Sedam repoa</a>
+        <a href="#ucenje"><span>04</span> Plan učenja</a>
+        <a href="#modeli"><span>05</span> Izbor modela</a>
+        <a href="#spoj"><span>06</span> Spoj sa harnessom</a>
+        <a href="#izvori"><span>07</span> Izvori</a>
+      </nav>
+      <div class="side-bottom"><span class="live-dot"></span> OFFLINE POC<br><small>Bez naloga, tokena i API poziva</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><span>DRUGA OBLAST / UPRAVLJANJE ZNANJEM</span><span>AŽURIRANO 23. 11. 2026. <span class="top-sep">/</span> SR</span></header>
+      <section id="uvod" class="hero section brain-hero">
+        <div class="eyebrow"><span class="live-dot"></span> IZVOR → ZNANJE → ODLUKA</div>
+        <h1>Second brain<br><em>za agenta.</em></h1>
+        <p class="lead">Second brain čuva proverljivo znanje o projektima. Harness izvršava posao, meri kvalitet i odlučuje šta sme dalje. Znanje ulazi u planiranje; dokaz iz završenog rada vraća se u znanje.</p>
+        <div class="hero-actions"><a class="button primary" href="#tok">Istraži tok znanja</a><a class="button subtle" href="#ucenje">Kreni sa vežbama</a></div>
+        <div class="brain-decision"><b>Zašto poseban tab?</b><span>Postojeći factory loop meri izvršavanje tiketa i PR-ova. Second brain ima drugi životni ciklus: unos izvora, sinteza, citiranje, svežina i ispravka znanja. Povezani su na dve tačke, ali nisu isti workflow.</span></div>
+        <p class="hero-note">Ova stranica je obrazovni model. Svi primeri i interakcije rade lokalno u browseru.</p>
+      </section>
+
+      <section id="tok" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">01 / ARHITEKTURA</div><h2>Kako znanje postaje upotrebljivo.</h2></div><p>Klikni na fazu da vidiš ulaz, izlaz, proveru i cenu zaključivanja.</p></div>
+        <div class="brain-flow" role="group" aria-label="Faze second brain toka">
+          <button type="button" class="brain-step active" data-step="capture"><small>01 · UNOS</small><b>Uhvatiti izvor</b><span>URL · dokument · PR · incident</span></button>
+          <button type="button" class="brain-step" data-step="raw"><small>02 · ORIGINAL</small><b>Sačuvati raw</b><span>datum · autor · link · hash</span></button>
+          <button type="button" class="brain-step" data-step="wiki"><small>03 · SINTEZA</small><b>Ažurirati wiki</b><span>entitet · tema · odluka · veze</span></button>
+          <button type="button" class="brain-step" data-step="query"><small>04 · UPIT</small><b>Naći dokaz</b><span>odgovor + citat + neizvesnost</span></button>
+          <button type="button" class="brain-step" data-step="lint"><small>05 · ODRŽAVANJE</small><b>Ispraviti znanje</b><span>zastarelo · sukob · praznina</span></button>
+        </div>
+        <div class="brain-stage" aria-live="polite"><div><small id="stage-label"></small><h3 id="stage-title"></h3><p id="stage-text"></p></div><div class="stage-output"><b>Artefakt i uslov prolaza</b><p id="stage-gate"></p><b>Računarska ruta</b><p id="stage-model"></p></div></div>
+        <div class="brain-folders"><div><small>MINIMALNI TREZOR</small><pre>brain/
+├── raw/          # izvorni tekst, bez prepisivanja
+├── wiki/         # izvedene stranice i veze
+│   ├── index.md
+│   └── log.md
+├── output/       # odgovori i izveštaji
+└── RULES.md      # format, citati, dozvole</pre></div><div><h3>Tri nivoa poverenja</h3><p><b>Raw</b> je sačuvan original sa poreklom. <b>Wiki</b> je izvedena interpretacija koju možeš ispraviti. <b>Output</b> je odgovor za konkretnu odluku. Tvrdnja u odgovoru treba da vodi do izvora; wiki sama nije dovoljan dokaz.</p><p>Obsidian može da prikaže Markdown i veze. On nije obavezna komponenta, model niti agent.</p></div></div>
+      </section>
+
+      <section id="repoi" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">02 / PROVERA X OBJAVE</div><h2>Sedam repoa, sedam uloga.</h2></div><p>Originalni post ih predstavlja kao „second brain“ paket. Njihovi README fajlovi opisuju različite delove sistema. Ništa ovde ne moraš instalirati da bi razumeo obrazac.</p></div>
+        <div class="repo-grid">
+          <article><small>MEMORIJA · OPCIONO</small><h3>gbrain</h3><p>Garry Tanov opinionated agent brain. Prouči kao primer memorijskog sloja i indeksiranja lokalnih beleški; nije obavezna osnova.</p><a href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener noreferrer">GitHub / gbrain</a></article>
+          <article><small>WORKFLOW · OPCIONO</small><h3>gstack</h3><p>Uloge i skills za coding workflow. Mapira se na harnessov radnik, review i release, a ne na skladište znanja.</p><a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer">GitHub / gstack</a></article>
+          <article><small>IZVRŠILAC</small><h3>Claude Code</h3><p>Terminalski coding agent. Može čitati i pisati lokalni Markdown uz pravila i dozvole. Sam po sebi nije second brain.</p><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer">GitHub / Claude Code</a></article>
+          <article><small>PROCEDURE</small><h3>Anthropic Skills</h3><p>Primeri ponovljivih uputstava za agenta. Koristi ih kao šablon za ingest, query i lint procedure.</p><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">GitHub / Skills</a></article>
+          <article><small>POSLOVNI TOKOVI</small><h3>Knowledge Work Plugins</h3><p>Paketi tokova za Claude Cowork i Claude Code. Ideje za specijalizovane poslove; nisu baza znanja.</p><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">GitHub / Plugins</a></article>
+          <article><small>UNOS SADRŽAJA</small><h3>Defuddle</h3><p>Vadi glavni sadržaj stranice u Markdown. Koristan pre snimanja raw izvora; proveri tekst, metapodatke i pravo pristupa.</p><a href="https://github.com/kepano/defuddle" target="_blank" rel="noopener noreferrer">GitHub / Defuddle</a></article>
+          <article><small>RECEPTI</small><h3>OpenAI Cookbook</h3><p>Primeri rada sa OpenAI API-jem. Za pravi API eksperiment bi trebalo povezivanje, ali ovaj POC ostaje bez ključa.</p><a href="https://github.com/openai/openai-cookbook" target="_blank" rel="noopener noreferrer">GitHub / Cookbook</a></article>
+        </div>
+        <p class="repo-warning">Provera tvrdnje: post daje koristan spisak inspiracije, ali ovi repozitorijumi nisu zajednički proizvod, nisu svi skladišta memorije i ne čine gotov sistem prostim kloniranjem.</p>
+      </section>
+
+      <section id="ucenje" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">03 / ČETIRI NEDELJE</div><h2>Uči kroz proverljive artefakte.</h2></div><p>Četiri sesije nedeljno po 60–90 minuta. Svaka nedelja ima radni rezultat i uslov prolaza. Detaljne zadatke otvori u vodiču.</p></div>
+        <div class="brain-curriculum">
+          <article><span>01 / OSNOVA</span><h3>Izvor i poreklo</h3><p>Ručno unesi 5 javnih izvora. Sačuvaj naslov, URL, datum pristupa, autora i hash. Označi tvrdnje i citate.</p><b>Prolaz: 5/5 tvrdnji vodi na konkretan raw pasus.</b></article>
+          <article><span>02 / WIKI</span><h3>Sinteza i veze</h3><p>Napravi index, dve tematske i jednu projektnu stranicu. Razdvoji činjenicu, zaključak i otvoreno pitanje; poveži ih.</p><b>Prolaz: novi izvor menja postojeću stranicu bez gubitka porekla.</b></article>
+          <article><span>03 / UPIT I LINT</span><h3>Odgovori sa dokazom</h3><p>Napiši 10 pitanja: jednostavna, višedokumentna, kontradiktorna i bez odgovora. Oceni citate, praznine i zastarele tvrdnje.</p><b>Prolaz: bez izmišljenog citata; „ne znam“ kad dokaz ne postoji.</b></article>
+          <article><span>04 / INTEGRACIJA</span><h3>Predaja harnessu</h3><p>Za jedan bug napiši context pack i odluku nakon verifikacije. Uporedi rezultat sa i bez wiki konteksta.</p><b>Prolaz: bolji rezultat uz isto pravilo verifikacije i zabeležen trošak.</b></article>
+        </div>
+        <div class="brain-callout"><b>Vežba bez tokena</b><p>Počni od primerâ u <a href="https://github.com/nokibuzz/agentic-harness-lab/tree/main/vezbe/second-brain" target="_blank" rel="noopener noreferrer">vezbe/second-brain</a>. Pročitaj raw zapis, ručno napiši wiki karticu i odgovori na tri pitanja samo uz citat. Uporedi sa kontrolnom listom u <a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/SECOND_BRAIN.md" target="_blank" rel="noopener noreferrer">detaljnom vodiču</a>.</p></div>
+      </section>
+
+      <section id="modeli" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">04 / ROUTING</div><h2>Plati zaključivanje tamo gde vredi.</h2></div><p>Model biraj po vrsti odluke, ne po reputaciji. Iste slučajeve pusti kroz više ruta i meri citate, korisnost, vreme i cenu po tačnom odgovoru.</p></div>
+        <div class="brain-models">
+          <div><small>0 / BEZ MODELA</small><h3>Preuzimanje i struktura</h3><p>URL, datum, hash, deduplikacija i parser. Defuddle ili drugi extractor izvlači tekst. Validacija i politika pristupa su kod.</p></div>
+          <div><small>1 / JEFTINIJI, LOW</small><h3>Tagovi i lokalni sažetak</h3><p>Luna, odgovarajući DeepSeek ili mali model za ekstrakciju u šemu. Zahtevaj citat do pasusa. Loš JSON ili nesiguran nalaz šalji dalje.</p></div>
+          <div><small>2 / RADNI, MEDIUM</small><h3>Wiki i odgovori</h3><p>Sol, Sonnet ili uporediv model kad treba povezati više stranica, ažurirati wiki i odgovoriti uz izvore. Grok testiraj na istoj eval bateriji.</p></div>
+          <div><small>3 / JAČI, HIGH</small><h3>Sukob ili visok rizik</h3><p>Astra, Opus ili drugi jači model kada izvori protivreče, kontekst je velik ili odluka utiče na sigurnost. Čovek potvrđuje sporne tvrdnje.</p></div>
+        </div>
+        <div class="brain-formula"><b>Pravilo eskalacije</b><span>jasan format + mali rizik → jeftina ruta; više izvora ili nejasnoća → radna ruta; kontradikcija ili visok uticaj → jača ruta + čovek. Povratak na slabiju rutu tek posle replay evala.</span></div>
+      </section>
+
+      <section id="spoj" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">05 / SPOJ DVA SISTEMA</div><h2>Gde se tokovi sreću.</h2></div><p>Znanje pomaže pri odluci, a factory ostaje autoritet za izvršavanje i proveru.</p></div>
+        <div class="bridge-map"><div><small>SECOND BRAIN</small><h3>Pronađi prethodno znanje</h3><p>Relevantne odluke, incidenti, arhitektura i linkovi na raw izvore. Izlaz je mali context pack sa poreklom i datumom.</p></div><div class="bridge-joint"><span>→ KONTEKST ZA TIKET →</span><span>← POTVRĐENA LEKCIJA ←</span></div><div><small>HARNESS</small><h3>Uradi i proveri posao</h3><p>Ticket, izolovani worker, testovi, Playwright, review, CI i merge gate. Samo potvrđeni ishod vraća se kao nova wiki lekcija.</p></div></div>
+        <div class="boundary-grid"><article><h3>Šta ostaje autoritativno?</h3><p>Ticket board čuva status posla; Git i CI čuvaju kod i testove; run log čuva izvršavanje. Wiki može da ih sažme i poveže, ali ne zamenjuje njihove zapise.</p></article><article><h3>Šta nikad ne ide direktno dalje?</h3><p>Neprovereni tekst sa weba, instrukcije skrivene u dokumentima, tajne ili pretpostavka iz wiki sažetka. Retrieval je kontekst, ne dozvola za akciju.</p></article><article><h3>Kako meriti spoj?</h3><p>Uporedi iste tikete sa i bez context packa: tačnost trijaže, vreme do reprodukcije, broj pogrešnih citata, cena po ispravnom rešenju i regresije.</p></article></div>
+      </section>
+
+      <section id="izvori" class="section content-section sources-section">
+        <div class="section-heading"><div><div class="kicker">06 / PRIMARNI IZVORI</div><h2>Pročitaj original pre alata.</h2></div><p>X post je polazna tvrdnja. Gist, članak i README fajlovi daju razliku između ideje i implementacije.</p></div>
+        <div class="source-columns"><div><h3>Ideja i analiza</h3><a href="https://x.com/imryven/status/2124497418397855804" target="_blank" rel="noopener noreferrer"><b>Ryven / originalna X objava</b><span>Spisak sedam repozitorijuma.</span></a><a href="https://x.com/imryven/status/2115046979659055476" target="_blank" rel="noopener noreferrer"><b>Ryven / detaljni X članak</b><span>Predlog Claude + Obsidian postupka; autor navodi da nije testiran od početka do kraja.</span></a><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener noreferrer"><b>Karpathy / LLM Wiki</b><span>Originalni opis ideje: raw, wiki, pravila i održavanje.</span></a></div><div><h3>Kontrole i dodatno učenje</h3><a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer"><b>Claude Code / memory</b><span>Kako CLAUDE.md utiče na kontekst.</span></a><a href="https://code.claude.com/docs/en/settings" target="_blank" rel="noopener noreferrer"><b>Claude Code / permissions</b><span>Dozvole i stvarne granice izvršavanja.</span></a><a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/SECOND_BRAIN.md" target="_blank" rel="noopener noreferrer"><b>Harness Lab / detaljni plan</b><span>Sesije, šabloni, eval skup i pravila integracije.</span></a></div></div>
+        <p class="source-note">Modeli, repozitorijumi i dokumentacija se menjaju. Predlozi ruta su hipoteze za tvoje benchmarke. Ovaj POC ne preuzima web sadržaj, ne instalira repozitorijume i ne pristupa nalogu ili privatnim podacima.</p>
+      </section>
+      <footer><span>HARNESS LAB © 2026</span><span>IZVOR → SINTEZA → CITAT → PROVERA</span><a href="#uvod">Nazad na vrh ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>

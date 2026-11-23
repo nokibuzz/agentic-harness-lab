@@ -4,6 +4,8 @@
 
 **Ritam:** osam nedelja × četiri sesije × 60–90 minuta. Ako imaš manje vremena, zadrži redosled. Svaka nedelja završava fajlom koji možeš pregledati i konkretnim uslovom prolaza.
 
+**Paralelna oblast:** [Second brain: četiri nedelje i 16 sesija](SECOND_BRAIN.md). Nije zamena za factory plan. U drugoj nedelji ovog plana možeš početi sa raw izvorima; pri trijaži i planiranju koristi proverljiv context pack. Posle verifikacije i mergea zapiši potvrđenu lekciju. Ticket, Git, CI i run log ostaju autoritativni za stanje rada.
+
 ## Mapa
 
 | Red | Tema sa slike | Pitanje | Artefakt |
