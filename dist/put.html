@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lični plan za agentic developera: 30 dana, 2–3 sata dnevno, merljivi uslovi prolaza, incidenti i read-only Confluence.">
+  <title>Tvoj put — Harness Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315201d'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23c9ef6b' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%23c9ef6b' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./put.css">
+  <script src="./put-data.js" defer></script>
+  <script src="./put.js" defer></script>
+</head>
+<body class="path-page">
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navigacija">
+      <a class="brand" href="./index.html"><span class="brand-mark">◎</span><span>HARNESS <b>LAB</b><small>INTERAKTIVNI VODIČ / 2026</small></span></a>
+      <div class="side-caption">OBLASTI UČENJA</div>
+      <div class="section-switch" aria-label="Oblasti učenja"><a href="./index.html">Harness</a><a href="./second-brain.html">Second brain</a><a class="current" href="./put.html" aria-current="page">Tvoj put</a></div>
+      <nav class="side-nav">
+        <a href="#start" class="active"><span>01</span> Polazna tačka</a>
+        <a href="#mapa"><span>02</span> Mapa veština</a>
+        <a href="#dani"><span>03</span> Dnevne lekcije</a>
+        <a href="#tokeni"><span>04</span> Token laboratorija</a>
+        <a href="#alati"><span>05</span> gstack i pstack</a>
+        <a href="#cilj"><span>06</span> Incident sistem</a>
+        <a href="#dokazi"><span>07</span> Dokazi i izvori</a>
+      </nav>
+      <div class="side-bottom"><span class="live-dot"></span> OFFLINE PLAN<br><small>Napredak ostaje u ovom browseru</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><span>LIČNA STAZA / 2–3 SATA DNEVNO</span><span>AŽURIRANO 24. 11. 2026. <span class="top-sep">/</span> SR</span></header>
+      <section id="start" class="hero section path-hero">
+        <div class="eyebrow">OD ČITANJA DO DOKAZA</div>
+        <h1>Postani<br><em>agentic developer.</em></h1>
+        <p class="lead">Tvoj cilj je da projektuješ read-only sistem koji čita pravila incident menadžmenta iz Confluencea, razume stanje incidenata, navodi dokaze za prioritet i zna kada da kaže „ne znam“. Zatim taj uski sistem raste u proverljivu AI Factory.</p>
+        <div class="hero-actions"><a class="button primary" href="#dani">Otvori Dan 1</a><a class="button subtle" href="#cilj">Pogledaj krajnji sistem</a></div>
+        <div class="path-hero-metrics"><div><strong>30</strong><span>radnih dana</span></div><div><strong>75 h</strong><span>planirano, sredina opsega</span></div><div><strong>01</strong><span>read-only capstone</span></div></div>
+        <p class="hero-note">Nema povezanih naloga, tokena ili stvarnih incidenata. Vežbe koriste izmišljene podatke; checkliste se čuvaju lokalno.</p>
+      </section>
+
+      <section id="mapa" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">MAPA / TRI NITI</div><h2>Uči u redosledu koji služi cilju.</h2></div><p>Šest petodnevnih blokova spajaju postojeći Harness i Second Brain u jedan praktičan put.</p></div>
+        <div class="path-tracks">
+          <article><small>JEZIK I ALATI</small><h3>Ugovori pre sintakse</h3><p>Terminal, Git, HTTP, JSON i jedan mali jezik za čitanje podataka. AI piše prvi nacrt; ti znaš da ga pročitaš, pokreneš, testiraš i vratiš.</p></article>
+          <article><small>HARNESS</small><h3>Izvršavanje sa dokazom</h3><p>Workflow graf, uslovi zaustavljanja, izolacija, PR review, browser/API verifikacija, eval, routing i budžet.</p><a href="./index.html#fabrika">Postojeći factory loop</a></article>
+          <article><small>SECOND BRAIN</small><h3>Kontekst sa poreklom</h3><p>Confluence stranice kao izvor pravila; izvorni pasusi, wiki sinteza, svežina, citati i mali context pack za incident.</p><a href="./second-brain.html#tok">Postojeći tok znanja</a></article>
+        </div>
+        <div class="path-milestones" aria-label="Šest blokova učenja"><span>Osnove</span><span>Rad s agentom</span><span>Znanje</span><span>Incidenti</span><span>Provera</span><span>Factory</span></div>
+      </section>
+
+      <section id="dani" class="section content-section path-lessons">
+        <div class="section-heading"><div><div class="kicker">30 DANA / 2–3 SATA</div><h2>Svaki dan ima dokaz prolaza.</h2></div><p>Otvori dan, odradi tri vremenska bloka i zapiši gde je dokaz. Tek tada čekiraj. Napredak ostaje u browseru ovog uređaja.</p></div>
+        <div class="path-progress" aria-live="polite"><div><b id="progress-number">0 / 30</b><span>završenih lekcija</span></div><div class="progress-track"><div id="progress-fill"></div></div><span id="progress-note">Prva lekcija čeka.</span></div>
+        <div class="week-tabs" role="tablist" aria-label="Nedelje učenja"></div>
+        <div id="week-intro" class="week-intro"></div>
+        <div id="day-list" class="day-list"></div>
+        <div class="curriculum-footer"><a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/PUT.md" target="_blank" rel="noopener noreferrer">Detaljan vodič i šabloni na GitHubu</a><button type="button" id="export-progress">Izvezi napredak</button><label class="import-label">Uvezi napredak <input type="file" id="import-progress" accept="application/json,.json"></label></div>
+      </section>
+
+      <section id="tokeni" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">TOKEN LAB / ILUSTRACIJA</div><h2>Kad delegat štedi, a kad troši?</h2></div><p>Svaki podagent dobija svoj kontekst i troši tokene. Dva su granica vežbe, ne univerzalni optimum. Cene unosiš sam, jer se menjaju.</p></div>
+        <div class="token-lab">
+          <div class="token-controls">
+            <label>Ulazni tokeni glavnog agenta <input id="main-in" type="number" min="0" step="1000" value="12000"></label>
+            <label>Izlazni tokeni glavnog agenta <input id="main-out" type="number" min="0" step="1000" value="3000"></label>
+            <label>Ulazni tokeni po delegatu <input id="child-in" type="number" min="0" step="1000" value="6000"></label>
+            <label>Izlazni tokeni po delegatu <input id="child-out" type="number" min="0" step="1000" value="1200"></label>
+            <label>Cena ulaza / milion tokena ($) <input id="input-rate" type="number" min="0" step=".01" value="1"></label>
+            <label>Cena izlaza / milion tokena ($) <input id="output-rate" type="number" min="0" step=".01" value="5"></label>
+          </div>
+          <div class="token-results">
+            <div><small>SAMO GLAVNI</small><strong id="cost-zero"></strong><span>jedan kontekst, bez delegiranja</span></div>
+            <div><small>JEDAN DELEGAT</small><strong id="cost-one"></strong><span>jedan izolovan zadatak + kratka predaja</span></div>
+            <div><small>DVA DELEGATA</small><strong id="cost-two"></strong><span>dve nezavisne uloge + isti parent</span></div>
+            <p id="token-explain"></p>
+          </div>
+        </div>
+        <div class="delegate-flow"><div><small>GLAVNI AGENT</small><b>Definiše pitanje i gate</b><p>Šalje samo potrebne fajlove, izlazni format i budžet.</p></div><div><small>DELEGAT A</small><b>Pronalazi dokaze</b><p>Read-only izvor i kratki citirani nalazi.</p></div><div><small>DELEGAT B</small><b>Nezavisno proverava</b><p>Traži kontradikcije ili rupe, bez ponavljanja celog istraživanja.</p></div></div>
+        <p class="delegate-rule">Kreni sa jednim agentom. Dodaj jednog delegata samo ako izolacija konteksta ili paralelan nezavisan nalaz opravdavaju dodatni trošak. Drugog dodaj za konkretan rizik. Dete ne pokreće novu decu u ovoj vežbi. Meri ukupni trošak po tačnoj odluci, ne samo broj tokena.</p>
+        <div class="path-model-ladder"><div><small>0 · KOD</small><b>Bez modela</b><p>Hash, parser, deduplikacija, dozvole, granični uslovi.</p></div><div><small>1 · LOW</small><b>Jeftiniji model</b><p>DeepSeek, Luna ili mali model: tagovi i ekstrakcija u šemu.</p></div><div><small>2 · MEDIUM</small><b>Radni model</b><p>Sol, Sonnet ili Grok: sinteza više izvora i planiranje.</p></div><div><small>3 · HIGH</small><b>Jači model + čovek</b><p>Opus, Astra ili drugi: sporan ili visokorizičan zaključak.</p></div></div>
+        <p class="delegate-rule">Imena su primeri za tvoj benchmark, ne tvrdnja koji je model trenutno najbolji ili najjeftiniji. Ne troši high reasoning da prepišeš JSON; ne spuštaj kritičnu odluku na jeftiniji model bez replay dokaza.</p>
+      </section>
+
+      <section id="alati" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">ALATI / POSTUPAK</div><h2>Kako koristiti gstack i pstack u razvoju.</h2></div><p>Uči tokove pojedinačno na izmišljenom projektu. Svaki alat prolazi isti dokazni prag; broj komandi nije mera veštine.</p></div>
+        <div class="tool-compare">
+          <article><span>GSTACK</span><h3>Razvojni kontrolni tok</h3><ol><li>Napiši spec i kriterijum prolaza; proveri arhitekturu uz <code>/plan-eng-review</code>.</li><li>Uradi malu izmenu, pokreni lokalne provere.</li><li>Upotrebi <code>/review</code> za nalaze na diffu.</li><li>Upotrebi <code>/qa-only</code> za read-only proveru API/CLI/UI ponašanja.</li><li><code>/ship</code> prouči tek kad znaš koji testovi i dozvole postoje.</li></ol><p>Zvanični README kaže da je vrednost u procesu i dokazima; njihov test nije pokazao veću stopu rešavanja bugova samo zato što je gstack instaliran.</p><a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer">Zvanični gstack README</a></article>
+          <article><span>PSTACK / POTETO</span><h3>Skill nastaje iz greške</h3><ol><li>Reprodukuj problem i zabeleži šta agent nije razumeo.</li><li>Napravi uski verification skill i mapu funkcija aplikacije.</li><li>Testiraj skill na istorijskim zadacima i različitim modelima.</li><li>Širok izlaz drži u izolovanom kontekstu; glavnom agentu vrati sažetak i reference.</li><li>Pojačaj paralelizam tek kad jedan tok prolazi proveru.</li></ol><p>pstack dokumentacija opisuje <code>poteto-agent</code> i <code>Comment Sicko</code> kao vrste podagenata. To ne znači da svaki posao treba dva izvršavanja.</p><a href="https://github.com/cursor/plugins/blob/main/pstack/README.md" target="_blank" rel="noopener noreferrer">Zvanični pstack README</a></article>
+        </div>
+      </section>
+
+      <section id="cilj" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">CAPSTONE / READ-ONLY</div><h2>Incident analitičar pre AI Factory.</h2></div><p>Prvi stvarni use case je odgovor na „Proveri incidente i stanje sistema“. Početna verzija čita i preporučuje; ne pravi tiket i ne menja produkciju.</p></div>
+        <div class="incident-chain"><div><small>IZVORI</small><b>Confluence pravila</b><span>verzija · pasus · pravo pristupa</span></div><div><small>SIGNALI</small><b>Incidenti + stanje</b><span>simulirani zapisi · vreme · servis</span></div><div><small>ODLUKA</small><b>Trijaža</b><span>uticaj · dokaz · nesigurnost</span></div><div><small>IZLAZ</small><b>Read-only izveštaj</b><span>prioritet · zašto · ko proverava</span></div></div>
+        <div class="incident-contract"><div><h3>Obavezan odgovor</h3><p>„INC-04: predlog SEV2, jer je checkout nedostupan za deo korisnika 18 minuta; dokaz: incident zapis i politika v3 §2.3. Nedostaje potvrda obima, zato čovek potvrđuje severity.“</p></div><div><h3>Pravilo za zaustavljanje</h3><p>Ako je pravilo zastarelo, signal protivrečan ili nedostaje podatak o uticaju, sistem vraća „potrebna provera“. Ne izmišlja stanje sistema i ne menja severity sam.</p></div></div>
+        <p class="capstone-link">Za vežbu koristi <a href="https://github.com/nokibuzz/agentic-harness-lab/tree/main/vezbe/incidenti" target="_blank" rel="noopener noreferrer">sintetičke Confluence stranice i incidente</a>. Plan završava istom eval baterijom koju ćeš kasnije koristiti kada dobiješ odobren read-only pristup stvarnim sistemima.</p>
+      </section>
+
+      <section id="dokazi" class="section content-section sources-section">
+        <div class="section-heading"><div><div class="kicker">POREKLO / NALAZI</div><h2>Odvoji viralnu tvrdnju od uputstva.</h2></div><p>U plan su ušli proverljivi obrasci iz originalnih materijala. Konkretna ograničenja, broj dana i pragovi prolaza su moj nastavni dizajn za tvoj cilj.</p></div>
+        <div class="source-columns"><div><h3>Lauren i agentic razvoj</h3><a href="https://x.com/AIDuckLabs/status/2123919819930042737" target="_blank" rel="noopener noreferrer"><b>AI Duck / post koji si poslao</b><span>Viralni opis video snimka; broj botova i pripisani citat nisu potvrđeni u primarnim izvorima.</span></a><a href="https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers" target="_blank" rel="noopener noreferrer"><b>Lauren Tan / Maven radionica</b><span>Verifikacioni skill, feature map, evals, CI pravila i trošak tokena.</span></a><a href="https://www.ycombinator.com/library/n0-the-rise-of-ai-coworkers" target="_blank" rel="noopener noreferrer"><b>Y Combinator / razgovor sa Lauren i Romanom</b><span>Uloge botova, dozvole, outer/inner loop i provera koda.</span></a><a href="https://cursor.com/docs/subagents" target="_blank" rel="noopener noreferrer"><b>Cursor / podagenti</b><span>Izolacija konteksta, trošak i kada delegirati.</span></a></div><div><h3>Alati i incidenti</h3><a href="https://github.com/cursor/plugins/blob/main/pstack/docs/guide/01-setup.md" target="_blank" rel="noopener noreferrer"><b>pstack / model i reasoning budžet</b><span>Model po ulozi i razlog za manji budžet.</span></a><a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer"><b>gstack / zvanični README</b><span>Review, QA, ship i sopstveni eval rezultati.</span></a><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page" target="_blank" rel="noopener noreferrer"><b>Atlassian / Confluence API</b><span>Read scope i stranice koje korisnik sme videti.</span></a><a href="https://www.atlassian.com/incident-management/handbook/incident-response" target="_blank" rel="noopener noreferrer"><b>Atlassian / incident response</b><span>Primer severity matrice i ljudske odluke.</span></a></div></div>
+        <p class="source-note">Tvoj interni Confluence proces ima prednost nad javnim primerima. Ova stranica ne čita ni Confluence ni incident alat, ne troši tokene i ne čuva podatke izvan browsera.</p>
+      </section>
+      <footer><span>HARNESS LAB © 2026</span><span>UČI → DOKAŽI → ČEKIRAJ → PRIMENI</span><a href="#start">Nazad na vrh ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>

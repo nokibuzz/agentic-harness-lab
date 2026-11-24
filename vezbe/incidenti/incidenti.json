@@ -1,0 +1,14 @@
+[
+  {"id":"INC-01","service":"checkout","impact":"potpuni prekid za sve korisnike","duration_minutes":8,"signal_age_minutes":2,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-02","service":"checkout","impact":"nedostupno za deo korisnika","duration_minutes":18,"signal_age_minutes":3,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-03","service":"search","impact":"ograničena degradacija","duration_minutes":7,"signal_age_minutes":1,"data_loss":false,"security_or_privacy":false,"workaround":true,"access":"allowed"},
+  {"id":"INC-04","service":"login","impact":"obim nepoznat","duration_minutes":14,"signal_age_minutes":4,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-05","service":"checkout","impact":"nedostupno za deo korisnika","duration_minutes":18,"signal_age_minutes":47,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-06","service":"billing","impact":"potvrđen gubitak podataka","duration_minutes":2,"signal_age_minutes":1,"data_loss":true,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-07","service":"dashboard","impact":"široka degradacija ključne funkcije","duration_minutes":35,"signal_age_minutes":2,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-08","service":"reports","impact":"ograničena degradacija","duration_minutes":25,"signal_age_minutes":5,"data_loss":false,"security_or_privacy":false,"workaround":true,"access":"allowed"},
+  {"id":"INC-09","service":"login","impact":"signal A: globalni prekid; signal B: samo jedan region","duration_minutes":11,"signal_age_minutes":2,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed","conflicting_sources":true},
+  {"id":"INC-10","service":"login","impact":"nedostupno za deo korisnika","duration_minutes":12,"signal_age_minutes":1,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"allowed"},
+  {"id":"INC-11","service":"notifications","impact":"ograničena degradacija","duration_minutes":9,"signal_age_minutes":3,"data_loss":false,"security_or_privacy":false,"workaround":true,"access":"allowed"},
+  {"id":"INC-12","service":"payments","impact":"potpuni prekid za sve korisnike","duration_minutes":15,"signal_age_minutes":1,"data_loss":false,"security_or_privacy":false,"workaround":false,"access":"denied"}
+]

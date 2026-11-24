@@ -1,0 +1,25 @@
+diff --git a/src/classifyIncident.js b/src/classifyIncident.js
+new file mode 100644
+--- /dev/null
++++ b/src/classifyIncident.js
+@@ -0,0 +1,20 @@
++// Sintetički PR. Cilj: klasifikacija po policy-v3.md.
++export function classifyIncident(incident) {
++  if (incident.data_loss || incident.security_or_privacy) return 'SEV1';
++
++  if (incident.impact === 'potpuni prekid za sve korisnike'
++      && incident.duration_minutes >= 5) return 'SEV1';
++
++  if (incident.impact === 'nedostupno za deo korisnika'
++      && incident.duration_minutes >= 10) return 'SEV2';
++
++  if (incident.impact === 'široka degradacija ključne funkcije'
++      && incident.duration_minutes >= 30) return 'SEV2';
++
++  if (incident.signal_age_minutes > 30) return 'POTREBNA_PROVERA';
++  if (incident.conflicting_sources) return 'POTREBNA_PROVERA';
++  if (incident.access === 'denied') return 'POTREBNA_PROVERA';
++
++  if (incident.workaround) return 'SEV3';
++  return 'SEV3';
++}

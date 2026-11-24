@@ -6,6 +6,8 @@ Lokalni, interaktivni POC za učenje harness i factory engineeringa, loopova i w
 
 **Nova oblast:** [Second Brain tab](https://nokibuzz.github.io/agentic-harness-lab/dist/second-brain.html) i [detaljan četvoronedeljni plan](SECOND_BRAIN.md). Second brain održava proverljivo znanje; factory koristi mali context pack pre rada i vraća potvrđene lekcije posle provere.
 
+**Lični dnevni plan:** [Tvoj put — 30 dana po 2–3 sata](https://nokibuzz.github.io/agentic-harness-lab/dist/put.html) spaja Harness i Second Brain kroz cilj: read-only pregled sintetičkih incidenata po Confluence pravilima. Svaki dan ima ishod, tri vremenska bloka, artefakt, merljiv uslov prolaza i lokalnu checklistu. [Detaljan vodič](PUT.md) i [incident vežba](vezbe/incidenti/README.md).
+
 ## Pokretanje
 
 Otvori `dist/index.html` direktno u browseru. Za lokalni server:
@@ -30,6 +32,7 @@ Nema zavisnosti, naloga, tokena, API poziva, perzistencije ni veze s repozitorij
 - [UCENJE.md](UCENJE.md): osam nedelja, 32 sesije, konkretni artefakti, prolazni kriterijumi, šabloni za scorer, benchmark, routing i A/B plan.
 - [vezbe/](vezbe/README.md): osam izmišljenih runova za prvo samostalno ocenjivanje i ključ za poređenje.
 - [vezbe/second-brain/](vezbe/second-brain/README.md): ručna vežba sa sintetičkim incidentom, citatima i kontrolnom listom.
+- [vezbe/incidenti/](vezbe/incidenti/README.md): sintetička Confluence politika, 12 incidenata i ključ za read-only trijažu.
 
 ## Kako koristiti kao temelj za budući pravi sistem
 
@@ -39,4 +42,4 @@ Nema zavisnosti, naloga, tokena, API poziva, perzistencije ni veze s repozitorij
 4. Dodaj izolovane workere, nezavisni review i merge politiku u fazama. Počni read-only i draft PR izlazom.
 5. Meri uspeh po stvarnom ishodu i trošku po uspešnom tiketu; vraćaj regresije u eval skup.
 
-Istraživanje je ažurirano 23. novembra 2026. Linkovi i napomene o atribuciji nalaze se u sekcijama „Izvori“ oba taba. Pet koraka sa korisničke slike potvrđeno je i u [Zachovom tekstu o software factory sistemima](https://www.warp.dev/blog/build-production-software-factory). Drugi tab upoređuje [Ryvenovu objavu](https://x.com/imryven/status/2124497418397855804) sa originalnim README fajlovima i [Karpathyjevim LLM Wiki obrascem](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f).
+Istraživanje je ažurirano 24. novembra 2026. Linkovi i napomene o atribuciji nalaze se u sekcijama „Izvori“ svih tabova. Pet koraka sa korisničke slike potvrđeno je i u [Zachovom tekstu o software factory sistemima](https://www.warp.dev/blog/build-production-software-factory). Drugi tab upoređuje [Ryvenovu objavu](https://x.com/imryven/status/2124497418397855804) sa originalnim README fajlovima i [Karpathyjevim LLM Wiki obrascem](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Treći tab proverava [AI Duck objavu](https://x.com/AIDuckLabs/status/2123919819930042737) prema Laureninoj [Maven radionici](https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers), [YC razgovoru](https://www.ycombinator.com/library/n0-the-rise-of-ai-coworkers) i zvaničnim gstack/pstack izvorima.

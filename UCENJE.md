@@ -6,6 +6,8 @@
 
 **Paralelna oblast:** [Second brain: četiri nedelje i 16 sesija](SECOND_BRAIN.md). Nije zamena za factory plan. U drugoj nedelji ovog plana možeš početi sa raw izvorima; pri trijaži i planiranju koristi proverljiv context pack. Posle verifikacije i mergea zapiši potvrđenu lekciju. Ticket, Git, CI i run log ostaju autoritativni za stanje rada.
 
+**Ako želiš dnevni raspored za svoj incident use case:** prati [Tvoj put — 30 dana](PUT.md). Ovaj factory plan ostaje dublji referentni materijal za evals, benchmark, routing i A/B kada stigneš do odgovarajućih dana.
+
 ## Mapa
 
 | Red | Tema sa slike | Pitanje | Artefakt |
