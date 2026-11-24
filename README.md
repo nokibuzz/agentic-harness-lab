@@ -1,45 +1,72 @@
-# Harness Lab
+# Harness Lab — Agentic Engineering & Incident Intelligence POC
 
-Lokalni, interaktivni POC za učenje harness i factory engineeringa, loopova i workflow grafova. Namenjen je kao vizuelna priprema za budući sistem koji prima zadatke iz chata, terminala i rasporeda, trijažira tikete, priprema PR, proverava rezultat i primenjuje merge politiku.
+Javni, izvršivi portfolio projekat: interaktivna arhitektura harness/factory sistema, plan učenja i **read-only Incident Lab** koji daje proverljiv predlog ozbiljnosti za sintetičke incidente. Pokazuje šta sistem radi i kako se proverava, uz jasnu granicu prema budućoj Confluence integraciji i AI modelu.
 
-**Vizuelni prikaz:** [otvori Harness Lab na GitHub Pages](https://nokibuzz.github.io/agentic-harness-lab/).
+**Isprobaj:** [Incident Lab](https://nokibuzz.github.io/agentic-harness-lab/dist/lab.html) · [Harness arhitektura](https://nokibuzz.github.io/agentic-harness-lab/dist/index.html) · [Second Brain](https://nokibuzz.github.io/agentic-harness-lab/dist/second-brain.html) · [Tvoj put](https://nokibuzz.github.io/agentic-harness-lab/dist/put.html).
 
-**Nova oblast:** [Second Brain tab](https://nokibuzz.github.io/agentic-harness-lab/dist/second-brain.html) i [detaljan četvoronedeljni plan](SECOND_BRAIN.md). Second brain održava proverljivo znanje; factory koristi mali context pack pre rada i vraća potvrđene lekcije posle provere.
+![Incident Lab: arhitektura, simulacija i replay 12 slučajeva](docs/incident-lab.png)
 
-**Lični dnevni plan:** [Tvoj put — 30 dana po 2–3 sata](https://nokibuzz.github.io/agentic-harness-lab/dist/put.html) spaja Harness i Second Brain kroz cilj: read-only pregled sintetičkih incidenata po Confluence pravilima. Svaki dan ima ishod, tri vremenska bloka, artefakt, merljiv uslov prolaza i lokalnu checklistu. [Detaljan vodič](PUT.md) i [incident vežba](vezbe/incidenti/README.md).
+## Problem → rešenje → dokaz
+
+| Problem | Rešenje koje radi sada | Kako proveriti |
+| --- | --- | --- |
+| Incident predlog bez razloga | Čista funkcija vraća severity, razlog, polja izvora i pasus politike | Izaberi incident u [Lab-u](dist/lab.html) i prođi trace |
+| Zastareo, sporan ili uskraćen podatak | Pre-gate zaustavlja klasifikaciju pre AI poziva | Pokreni INC-05, INC-09 i INC-12 |
+| Promena pravila kvari ranije slučajeve | Replay poredi 12 fixturea sa referentnim oznakama | Klikni „Pokreni replay“ ili pokreni `npm test` |
+| Tajne u javnom frontendu | Podrazumevana ruta nema ključ; opcioni adapter čita ključ samo iz server env | Pročitaj [ugovor adaptera](docs/AI_ADAPTER.md) i testove |
+
+Ovo su sintetički slučajevi. Projekat **ne tvrdi** da je pregledao stvarne incidente, povezao Confluence ili automatizovao PR/merge.
 
 ## Pokretanje
 
-Otvori `dist/index.html` direktno u browseru. Za lokalni server:
+Potreban je Node.js 20+; nema npm paketa ni instalacije zavisnosti.
 
 ```sh
-cd dist
-python3 -m http.server 4173
+npm run dev
 ```
 
-Zatim otvori `http://localhost:4173`.
+Otvori `http://127.0.0.1:4173/lab.html`. Za testove:
 
-Nema zavisnosti, naloga, tokena, API poziva, perzistencije ni veze s repozitorijumima. Interakcije su demonstracija; simulacija i model router koriste ugrađene ilustrativne podatke i heuristike.
+```sh
+npm test
+```
+
+Tri nastavna taba možeš otvoriti i direktno iz `dist/`. Incident Lab koristi statičke JSON fixturee, pa mu treba lokalni HTTP server ili GitHub Pages.
+
+**Podrazumevano:** AI je isključen; nema naloga, tokena, poziva ka provajderu, stvarnih incidenata ni write operacija. Napredak u planu učenja čuva se u browseru i može se izvesti kao JSON.
+
+**Opciono:** lokalni server ima OpenAI Chat Completions ili kompatibilan adapter. Uključuje se preko `AI_ENABLED=1`, `AI_MODEL` i `AI_API_KEY` u serverskom okruženju. Ključ se ne unosi u frontend. [Uputstvo, ugovor i ograničenja](docs/AI_ADAPTER.md).
+
+## Arhitektura
+
+```mermaid
+flowchart LR
+  U[Browser: Incident Lab] --> F[12 sintetičkih zapisa]
+  F --> G[Pristup i svežina]
+  G --> R[Deterministička pravila]
+  R --> E[Dokaz i policy pasus]
+  E --> H[Čovek potvrđuje]
+  U -. opciono lokalno .-> S[Node API adapter]
+  S --> G
+  S -. samo kad je uključen .-> M[Model]
+```
+
+Detalji su u [arhitekturi](docs/ARCHITECTURE.md). Sintetička politika je u [vežbi](vezbe/incidenti/policy-v3.md); [pure core](dist/incident-core.mjs) može se testirati bez servera. Testovi pokrivaju 12 slučajeva, granične uslove, uskraćen pristup, isključen AI i to da server ne vraća ključ klijentu.
 
 ## Šta sadrži
 
-- Klikabilnu arhitekturu sistema: adapteri, trijaža, red, izolovani radnik, verifikacija, review, merge gate i outer loop.
-- Tri simulirana workflowa: prijavljeni bug, PR za autentifikaciju i jutarnji zakazani scan.
-- Interaktivni početni izbor modela i reasoning efforta. To nije tvrdnja o relativnoj kvaliteti modela; odluku treba proveriti na sopstvenom eval skupu.
-- Agentic best practices, anti-patterns, sedam etapa implementacije i linkove na primarne izvore.
-- Detaljan budući implementacioni nacrt u `VODIC.md`: kontrakti, stanja, čvorovi grafa, dozvole, pozivanje, model routing i metrike.
-- Novi interaktivni factory loop: online evals, self-improvement, replay benchmark, model routing i A/B test, sa kratkim primerom razlike između tracea i stvarnog ishoda.
-- [UCENJE.md](UCENJE.md): osam nedelja, 32 sesije, konkretni artefakti, prolazni kriterijumi, šabloni za scorer, benchmark, routing i A/B plan.
-- [vezbe/](vezbe/README.md): osam izmišljenih runova za prvo samostalno ocenjivanje i ključ za poređenje.
-- [vezbe/second-brain/](vezbe/second-brain/README.md): ručna vežba sa sintetičkim incidentom, citatima i kontrolnom listom.
-- [vezbe/incidenti/](vezbe/incidenti/README.md): sintetička Confluence politika, 12 incidenata i ključ za read-only trijažu.
+- [Incident Lab](dist/lab.html): funkcionalna trijaža, trace, citati, ljudski gate i replay.
+- [Harness](dist/index.html): arhitektura chat/CLI/scheduler → trijaža → radnik → provera → review → merge gate; factory loop, model routing i ilustrativni workflowi.
+- [Second Brain](dist/second-brain.html): izvori, raw/wiki/output, citati, svežina i predaja context packa.
+- [Tvoj put](dist/put.html): 30 dana po 2–3 sata, artefakti, merljivi gateovi i lokalno praćenje napretka.
+- [PUT.md](PUT.md), [UCENJE.md](UCENJE.md), [SECOND_BRAIN.md](SECOND_BRAIN.md) i [VODIC.md](VODIC.md): detaljna uputstva.
+- [vezbe/incidenti/](vezbe/incidenti/README.md): sintetička Confluence politika, 12 incidenata, referentne oznake i PR review diff.
 
-## Kako koristiti kao temelj za budući pravi sistem
+## Put prema stvarnom sistemu
 
-1. Izaberi jedan repozitorijum i jedan tip posla. Napiši ticket schema, acceptance kriterijume i stanje workflowa.
-2. Napravi verifikacioni skill koji pokreće aplikaciju, vozi ključni tok i čuva log, screenshot ili video.
-3. Tek onda poveži chat/CLI/scheduler adaptere sa trajnim event storeom i redom.
-4. Dodaj izolovane workere, nezavisni review i merge politiku u fazama. Počni read-only i draft PR izlazom.
-5. Meri uspeh po stvarnom ishodu i trošku po uspešnom tiketu; vraćaj regresije u eval skup.
+1. Potvrdi internu severity matricu, vlasništvo i granice podataka; izgradi istorijski eval skup.
+2. Poveži samo odobren read-only Confluence i incident adapter, uz permission check, provenance i audit.
+3. Uporedi determinističku i opcionu AI rutu na istim slučajevima; meri lažne kritične odluke, citate, vreme i cenu.
+4. Tek zatim razmatraj draft ticket, izolovanog coding workera, PR review i uski merge gate iz Harness plana.
 
-Istraživanje je ažurirano 24. novembra 2026. Linkovi i napomene o atribuciji nalaze se u sekcijama „Izvori“ svih tabova. Pet koraka sa korisničke slike potvrđeno je i u [Zachovom tekstu o software factory sistemima](https://www.warp.dev/blog/build-production-software-factory). Drugi tab upoređuje [Ryvenovu objavu](https://x.com/imryven/status/2124497418397855804) sa originalnim README fajlovima i [Karpathyjevim LLM Wiki obrascem](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Treći tab proverava [AI Duck objavu](https://x.com/AIDuckLabs/status/2123919819930042737) prema Laureninoj [Maven radionici](https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers), [YC razgovoru](https://www.ycombinator.com/library/n0-the-rise-of-ai-coworkers) i zvaničnim gstack/pstack izvorima.
+Istraživanje i atribucije su u sekcijama „Izvori“ tabova. Relevantni obrasci: [Atlassian Confluence read API](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page), [Atlassian incident response](https://www.atlassian.com/incident-management/handbook/incident-response), [Zach Lloyd o factory engineeringu](https://www.warp.dev/blog/build-production-software-factory), [Karpathy LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), [Lauren Tan Maven radionica](https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers), [gstack](https://github.com/garrytan/gstack) i [pstack](https://github.com/cursor/plugins/blob/main/pstack/README.md).

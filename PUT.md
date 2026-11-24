@@ -2,7 +2,9 @@
 
 **Ritam:** 30 radnih dana × 2–3 sata (oko 75 sati). [Interaktivni dnevni plan](https://nokibuzz.github.io/agentic-harness-lab/dist/put.html) sadrži za svaki dan tačno 30 minuta razumevanja, 90 minuta rada, 30 minuta dokazivanja, artefakt i uslov prolaza. Čekiranje zahteva da uneseš gde se dokaz nalazi. Napredak je samo u browseru i možeš ga izvesti kao JSON.
 
-**Tvoj use case:** kasniji read-only analitičar čita odobrene Confluence stranice o internom incident procesu, zatim odobrene incident zapise i signale. Na pitanje „Proveri incidente i stanje sistema“ vraća pregled, predlog ozbiljnosti, citat pravila i izvora, šta nedostaje i kome treba eskalirati. U ovoj fazi ne povezujemo Confluence, ne uzimamo tokene i ne pravimo operativnog agenta. Koristi [sintetičke vežbe](vezbe/incidenti/README.md).
+**Tvoj use case:** kasniji read-only analitičar čita odobrene Confluence stranice o internom incident procesu, zatim odobrene incident zapise i signale. Na pitanje „Proveri incidente i stanje sistema“ vraća pregled, predlog ozbiljnosti, citat pravila i izvora, šta nedostaje i kome treba eskalirati. U ovoj fazi ne povezujemo Confluence, ne uzimamo tokene i ne pravimo operativnog agenta. Koristi [sintetičke vežbe](vezbe/incidenti/README.md) i [izvršivi Incident Lab](dist/lab.html).
+
+**Praktičan cilj plana:** na početku pokreni `npm run dev` i prođi jedan slučaj u Incident Lab-u; do dana 20 umeš da objasniš svaku granu u [pure core funkciji](dist/incident-core.mjs); do dana 23 menjaš pravilo uz test i replay; na dan 30 pokazuješ [arhitekturu](docs/ARCHITECTURE.md), trace, 12/12 referentnih slučajeva i granice opcionog [AI adaptera](docs/AI_ADAPTER.md). Portfolio dokaz je radni POC, ne samo dokument.
 
 ## Zašto tri niti
 
@@ -11,6 +13,7 @@
 | [Harness i factory](UCENJE.md) | Workflow graf, evaluacije, benchmark, routing, PR provera | Kontroliše tok incident analize i buduće izmene koda |
 | [Second brain](SECOND_BRAIN.md) | Raw/wiki/output, poreklo, citati, održavanje | Pretvara Confluence pravila u proverljiv context pack |
 | [Tvoj dnevni plan](dist/put.html) | 30 merljivih lekcija, token lab, capstone | Sastavlja prethodna dva u jedan read-only proizvodni scenario |
+| [Incident Lab](dist/lab.html) | Izvršiva trijaža, trace, replay i opcioni lokalni AI adapter | Pretvara prethodne tri niti u proverljiv portfolio POC |
 
 ## Kako prolaziš svaki dan
 
@@ -45,7 +48,7 @@
 ### Context pack iz second braina
 
     PITANJE: Koje pravilo važi za nedostupan checkout?
-    PRAVILO: Policy v3 `S1, datum 2026-11-24; poslednja provera danas.
+    PRAVILO: Policy v3, S1, datum 2026-11-24; poslednja provera danas.
     RELEVANTAN IZVOR: raw/policy-v3.md#S1
     IZVEDENI ZAKLJUČAK: Mogući SEV1 ako je globalni prekid potvrđen >5 min.
     GRANICA: Ne znamo da li je prekid globalan dok signal to ne potvrdi.
@@ -56,7 +59,7 @@
     Stanje izvora: aktivan zapis, osvežen u 09:40
     Predlog: SEV2
     Dokaz: checkout nedostupan za deo korisnika 18 min, INC-02.
-    Politika: policy-v3 `S2.
+    Politika: policy-v3, S2.
     Neizvesnost: obim regiona treba potvrditi.
     Akcija: čovek potvrđuje; ovaj sistem ne menja incident.
 

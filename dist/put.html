@@ -16,7 +16,7 @@
     <aside class="sidebar" aria-label="Navigacija">
       <a class="brand" href="./index.html"><span class="brand-mark">◎</span><span>HARNESS <b>LAB</b><small>INTERAKTIVNI VODIČ / 2026</small></span></a>
       <div class="side-caption">OBLASTI UČENJA</div>
-      <div class="section-switch" aria-label="Oblasti učenja"><a href="./index.html">Harness</a><a href="./second-brain.html">Second brain</a><a class="current" href="./put.html" aria-current="page">Tvoj put</a></div>
+      <div class="section-switch" aria-label="Oblasti učenja"><a href="./index.html">Harness</a><a href="./second-brain.html">Second brain</a><a class="current" href="./put.html" aria-current="page">Tvoj put</a><a href="./lab.html">Incident Lab</a></div>
       <nav class="side-nav">
         <a href="#start" class="active"><span>01</span> Polazna tačka</a>
         <a href="#mapa"><span>02</span> Mapa veština</a>
@@ -34,7 +34,7 @@
         <div class="eyebrow">OD ČITANJA DO DOKAZA</div>
         <h1>Postani<br><em>agentic developer.</em></h1>
         <p class="lead">Tvoj cilj je da projektuješ read-only sistem koji čita pravila incident menadžmenta iz Confluencea, razume stanje incidenata, navodi dokaze za prioritet i zna kada da kaže „ne znam“. Zatim taj uski sistem raste u proverljivu AI Factory.</p>
-        <div class="hero-actions"><a class="button primary" href="#dani">Otvori Dan 1</a><a class="button subtle" href="#cilj">Pogledaj krajnji sistem</a></div>
+        <div class="hero-actions"><a class="button primary" href="#dani">Otvori Dan 1</a><a class="button subtle" href="./lab.html">Isprobaj Incident Lab</a></div>
         <div class="path-hero-metrics"><div><strong>30</strong><span>radnih dana</span></div><div><strong>75 h</strong><span>planirano, sredina opsega</span></div><div><strong>01</strong><span>read-only capstone</span></div></div>
         <p class="hero-note">Nema povezanih naloga, tokena ili stvarnih incidenata. Vežbe koriste izmišljene podatke; checkliste se čuvaju lokalno.</p>
       </section>
@@ -91,10 +91,10 @@
       </section>
 
       <section id="cilj" class="section content-section dark-section">
-        <div class="section-heading"><div><div class="kicker">CAPSTONE / READ-ONLY</div><h2>Incident analitičar pre AI Factory.</h2></div><p>Prvi stvarni use case je odgovor na „Proveri incidente i stanje sistema“. Početna verzija čita i preporučuje; ne pravi tiket i ne menja produkciju.</p></div>
+        <div class="section-heading"><div><div class="kicker">CAPSTONE / READ-ONLY</div><h2>Incident analitičar pre AI Factory.</h2></div><p>Ciljni use case je odgovor na „Proveri incidente i stanje sistema“. Sadašnji POC čita sintetičke zapise i preporučuje; ne pravi tiket i ne menja produkciju.</p></div>
         <div class="incident-chain"><div><small>IZVORI</small><b>Confluence pravila</b><span>verzija · pasus · pravo pristupa</span></div><div><small>SIGNALI</small><b>Incidenti + stanje</b><span>simulirani zapisi · vreme · servis</span></div><div><small>ODLUKA</small><b>Trijaža</b><span>uticaj · dokaz · nesigurnost</span></div><div><small>IZLAZ</small><b>Read-only izveštaj</b><span>prioritet · zašto · ko proverava</span></div></div>
-        <div class="incident-contract"><div><h3>Obavezan odgovor</h3><p>„INC-04: predlog SEV2, jer je checkout nedostupan za deo korisnika 18 minuta; dokaz: incident zapis i politika v3 §2.3. Nedostaje potvrda obima, zato čovek potvrđuje severity.“</p></div><div><h3>Pravilo za zaustavljanje</h3><p>Ako je pravilo zastarelo, signal protivrečan ili nedostaje podatak o uticaju, sistem vraća „potrebna provera“. Ne izmišlja stanje sistema i ne menja severity sam.</p></div></div>
-        <p class="capstone-link">Za vežbu koristi <a href="https://github.com/nokibuzz/agentic-harness-lab/tree/main/vezbe/incidenti" target="_blank" rel="noopener noreferrer">sintetičke Confluence stranice i incidente</a>. Plan završava istom eval baterijom koju ćeš kasnije koristiti kada dobiješ odobren read-only pristup stvarnim sistemima.</p>
+        <div class="incident-contract"><div><h3>Obavezan odgovor</h3><p>„INC-02: predlog SEV2, jer je checkout nedostupan za deo korisnika 18 minuta; dokaz: INC-02 [impact, duration_minutes] i POLICY-3 v3 §S2. Čovek potvrđuje severity.“</p></div><div><h3>Pravilo za zaustavljanje</h3><p>Ako je pravilo zastarelo, signal protivrečan ili nedostaje podatak o uticaju, sistem vraća „potrebna provera“. Ne izmišlja stanje sistema i ne menja severity sam.</p></div></div>
+        <p class="capstone-link">Za vežbu koristi <a href="./lab.html">izvršivi Incident Lab</a> i <a href="https://github.com/nokibuzz/agentic-harness-lab/tree/main/vezbe/incidenti" target="_blank" rel="noopener noreferrer">sintetičke Confluence stranice i incidente</a>. Istom metodom replay provere kasnije napravi zaseban eval skup sa odobrenim istorijskim incidentima.</p>
       </section>
 
       <section id="dokazi" class="section content-section sources-section">

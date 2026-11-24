@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Funkcionalni read-only incident simulator sa dokazima, replay evaluacijom i opcionim serverskim AI adapterom.">
+  <title>Incident Lab — Harness Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315201d'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23c9ef6b' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%23c9ef6b' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./lab.css">
+  <script type="module" src="./lab.js"></script>
+</head>
+<body class="lab-page">
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navigacija">
+      <a class="brand" href="./index.html"><span class="brand-mark">◎</span><span>HARNESS <b>LAB</b><small>INTERAKTIVNI VODIČ / 2026</small></span></a>
+      <div class="side-caption">OBLASTI UČENJA</div>
+      <div class="section-switch" aria-label="Oblasti učenja"><a href="./index.html">Harness</a><a href="./second-brain.html">Second brain</a><a href="./put.html">Tvoj put</a><a class="current" href="./lab.html" aria-current="page">Incident Lab</a></div>
+      <nav class="side-nav">
+        <a href="#uvod" class="active"><span>01</span> Šta radi</a>
+        <a href="#arhitektura"><span>02</span> Arhitektura</a>
+        <a href="#simulacija"><span>03</span> Simulacija</a>
+        <a href="#eval"><span>04</span> Replay eval</a>
+        <a href="#adapter"><span>05</span> AI adapter</a>
+        <a href="#granice"><span>06</span> Granice</a>
+      </nav>
+      <div class="side-bottom"><span class="live-dot"></span> READ-ONLY DEMO<br><small>Javni primeri, bez stvarnih naloga</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><span>PORTFOLIO POC / INCIDENT INTELLIGENCE</span><span>VERZIJA 1.0 <span class="top-sep">/</span> SR</span></header>
+      <section id="uvod" class="hero section lab-hero">
+        <div class="eyebrow">FUNKCIONALNI POC · SINTETIČKI PODACI</div>
+        <h1>Od signala do<br><em>obrazloženog</em> predloga.</h1>
+        <p class="lead">Ovaj mali sistem klasifikuje izmišljene incidente prema verzionisanoj politici. Pokazuje zašto je predložio SEV1/2/3 ili zašto je stao, navodi pasus pravila i traži ljudsku potvrdu. Na kraju možeš replay-ovati svih 12 slučajeva.</p>
+        <div class="hero-actions"><a class="button primary" href="#simulacija">Pokreni simulaciju</a><a class="button subtle" href="#arhitektura">Pogledaj arhitekturu</a><a class="button subtle" href="./put.html">Plan učenja</a></div>
+        <div class="lab-metrics"><div><strong>12</strong><span>incident primera</span></div><div><strong>0</strong><span>write operacija</span></div><div><strong>2</strong><span>rute: pravila / opcioni AI</span></div></div>
+        <p class="hero-note">Javna stranica radi bez AI ključa. Samo lokalni serverski adapter može pozvati model ako ga ti kasnije eksplicitno uključiš.</p>
+      </section>
+
+      <section id="arhitektura" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">SISTEM / JEDAN TOK</div><h2>Svaka odluka ima izvor i granicu.</h2></div><p>Frontend je statičan. Deterministički analizator radi u browseru; opcioni AI poziv prolazi samo kroz lokalni server.</p></div>
+        <div class="lab-architecture" aria-label="Arhitektura incident analitičara">
+          <div><small>1 · PRAVILA</small><b>Confluence → raw</b><span>U POC-u: policy v3, verzija i pasusi S1–S5.</span></div>
+          <div><small>2 · SIGNALI</small><b>Incident izvor</b><span>U POC-u: 12 izmišljenih JSON zapisa.</span></div>
+          <div><small>3 · PRE-GATE</small><b>Prava + svežina</b><span>Uskraćen, star ili sporan zapis staje.</span></div>
+          <div><small>4 · ROUTER</small><b>Pravila / AI savet</b><span>Model je opcioni dodatak, ne autoritet.</span></div>
+          <div><small>5 · DOKAZ</small><b>Izvor + policy</b><span>Svaka odluka navodi ID, polje i pasus.</span></div>
+          <div><small>6 · ČOVEK</small><b>Potvrda</b><span>Severity i incident status ostaju bez izmene.</span></div>
+        </div>
+        <div class="lab-flow-note">Chat, CLI i raspored mogu kasnije emitovati isti zahtev sa incident ID-em. Ovaj POC demonstrira samo read-only put od zahteva do izveštaja.</div>
+      </section>
+
+      <section id="simulacija" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">RADNI DEMO</div><h2>Prođi jedan incident korak po korak.</h2></div><p>Izaberi slučaj i rutu. „Pravila“ rade bez AI poziva. AI ruta se pojavljuje samo kada lokalni server potvrdi da je adapter uključen.</p></div>
+        <div class="lab-simulator">
+          <div class="lab-input">
+            <label for="incident-select">Incident</label><select id="incident-select"></select>
+            <label for="lab-mode">Ruta</label><select id="lab-mode"><option value="rules">Deterministička pravila · offline</option><option value="ai" disabled>AI savet · nije povezan</option></select>
+            <p id="adapter-status" class="adapter-status">Proveravam adapter…</p>
+            <div class="fixture-card"><small>ULAZNI ZAPIS</small><dl id="fixture-detail"></dl></div>
+            <div class="lab-actions"><button type="button" id="start-run" class="button primary">Pokreni analizu</button><button type="button" id="next-run" class="button outline" disabled>Sledeći korak</button></div>
+          </div>
+          <div class="lab-output">
+            <div class="terminal-head"><span><i></i><i></i><i></i></span> RUN TRACE <b id="run-count">0 / 0</b></div>
+            <div id="lab-trace" class="lab-trace" aria-live="polite"><p>Izaberi incident i pokreni analizu.</p></div>
+            <div id="lab-result" class="lab-result" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="eval" class="section content-section">
+        <div class="section-heading"><div><div class="kicker">REPLAY / MERENJE</div><h2>Proveri svih 12 testnih slučajeva.</h2></div><p>Referentne oznake su ručno zapisane za sintetičku politiku. Poređenje hvata promene u pravilima koje bi pokvarile prethodne odluke.</p></div>
+        <div class="eval-panel"><div><h3>Fiksni eval skup</h3><p>Uključuje globalni prekid, delimični prekid, gubitak podataka, zastareo signal, sukob izvora, nepoznat obim i uskraćen pristup. Cilj nije samo pogoditi oznaku: proveri i razlog, citat i stop odluku.</p><button type="button" id="run-eval" class="button primary" disabled>Pokreni replay</button></div><div id="eval-summary" class="eval-summary" aria-live="polite"><strong>Čeka replay</strong><span>12 scenarija, 1 politika</span></div></div>
+        <p class="eval-scroll-hint">Na uskom ekranu prevuci tabelu ulevo za pasus i proveru.</p>
+        <div id="eval-table" class="eval-table"></div>
+      </section>
+
+      <section id="adapter" class="section content-section dark-section">
+        <div class="section-heading"><div><div class="kicker">OPCIONI AI SLOJ</div><h2>Priključi ili isključi model bez menjanja frontenda.</h2></div><p>Javna GitHub Pages verzija nikada ne traži ključ. Lokalni Node server čita ključ isključivo iz promenljive okruženja i prima samo ID jednog od sintetičkih incidenata.</p></div>
+        <div class="adapter-grid"><div><small>REŽIM A · DEFAULT</small><h3>Pravila</h3><p>Čista funkcija, proverljiv rezultat i isti izlazni ugovor. Radi na GitHub Pages, bez naloga i tokena.</p><code>analyzeIncident(incident)</code></div><div><small>REŽIM B · OPT-IN</small><h3>AI savet</h3><p>Lokalni server može pozvati OpenAI Chat Completions ili kompatibilan endpoint. Pre-gate odbija uskraćene, stare i sporne zapise pre bilo kakvog poziva modelu.</p><code>AI_ENABLED=1 · AI_MODEL · AI_API_KEY</code></div></div>
+        <p class="adapter-link">Pogledaj <a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/docs/AI_ADAPTER.md" target="_blank" rel="noopener noreferrer">ugovor adaptera i uputstvo</a>. Ključ se ne unosi u browser, ne čuva u localStorage i ne objavljuje u repozitorijumu.</p>
+      </section>
+
+      <section id="granice" class="section content-section sources-section">
+        <div class="section-heading"><div><div class="kicker">ŠTA JE DOKAZANO</div><h2>Prikaži mogućnost bez lažne produkcione tvrdnje.</h2></div><p>Ovaj repozitorijum je portfolio POC sa izvršivim read-only tokom, fixtureima, evalom i testovima. Nema povezanog Confluencea, incident platforme, tiketa ili PR automatizacije.</p></div>
+        <div class="boundary-grid"><article><h3>Radi sada</h3><p>Trijaža 12 sintetičkih incidenata, izvor i pasus pravila, trace, ljudski gate, replay eval, opciono lokalno AI poređenje.</p></article><article><h3>Granice pristupa</h3><p>Odlučivanje je savetodavno. Server ne prima proizvoljan dokument niti prosleđuje uskraćen slučaj modelu. Nema write endpointa za incidente.</p></article><article><h3>Sledeća faza</h3><p>Odobren read-only Confluence adapter, potvrđena interna severity matrica, istorijski eval skup, monitoring, pa tek onda razmatranje tiketa i PR toka.</p></article></div>
+        <div class="source-columns"><div><h3>Projektna dokumentacija</h3><a href="https://github.com/nokibuzz/agentic-harness-lab" target="_blank" rel="noopener noreferrer"><b>GitHub repozitorijum</b><span>Kod, testovi, fixturei i plan učenja.</span></a><a href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><b>Arhitektura i granice</b><span>Tok podataka, adapteri, dozvole i razvojne faze.</span></a></div><div><h3>Izvorni obrasci</h3><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page" target="_blank" rel="noopener noreferrer"><b>Confluence read API</b><span>Read scope i stranice dostupne korisniku.</span></a><a href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer"><b>OpenAI strukturirani izlaz</b><span>Izlaz modela uvek proveri prema ugovoru.</span></a></div></div>
+      </section>
+      <footer><span>HARNESS LAB © 2026</span><span>IZVOR → GATE → PREDLOG → ČOVEK</span><a href="#uvod">Nazad na vrh ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>
