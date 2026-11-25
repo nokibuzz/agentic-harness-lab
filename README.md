@@ -59,6 +59,7 @@ Detalji su u [arhitekturi](docs/ARCHITECTURE.md). Sintetička politika je u [ve�
 - [Harness](dist/index.html): arhitektura chat/CLI/scheduler → trijaža → radnik → provera → review → merge gate; factory loop, model routing i ilustrativni workflowi.
 - [Second Brain](dist/second-brain.html): izvori, raw/wiki/output, citati, svežina i predaja context packa.
 - [Tvoj put](dist/put.html): osam nedelja i 40 detaljnih lekcija, konkretne komande, primeri, merljivi gateovi i lokalno praćenje napretka. Isti sadržaj je u [Markdown kursu](PUT.md).
+- [Repo Scout Kit plan](SKILL_KIT_PLAN.md): drugi portfolio cilj posle Dana 10 — zaseban instalabilan paket skillova, paired eval, a MCP samo uz dokaz koristi. Ovo je plan za budući repozitorijum, nije već izgrađen alat.
 - [PUT.md](PUT.md), [UCENJE.md](UCENJE.md), [SECOND_BRAIN.md](SECOND_BRAIN.md) i [VODIC.md](VODIC.md): detaljna uputstva.
 - [vezbe/incidenti/](vezbe/incidenti/README.md): sintetička Confluence politika, 12 incidenata, referentne oznake i PR review diff.
 

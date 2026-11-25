@@ -24,4 +24,5 @@ test('Markdown course includes all daily lessons and source provenance',async()=
   assert.equal((markdown.match(/^#### Dan \d+:/gm)||[]).length,40);
   assert.match(markdown,/## Šta sam proverio u izvorima/);
   assert.match(markdown,/\.cursor\/agents\/evidence-finder\.md/);
+  assert.match(markdown,/SKILL_KIT_PLAN\.md/);
 });

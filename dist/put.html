@@ -24,8 +24,9 @@
         <a href="#dani"><span>03</span> Dnevne lekcije</a>
         <a href="#tokeni"><span>04</span> Token laboratorija</a>
         <a href="#alati"><span>05</span> gstack i pstack</a>
-        <a href="#cilj"><span>06</span> Incident sistem</a>
-        <a href="#dokazi"><span>07</span> Dokazi i izvori</a>
+        <a href="#portfolio-kit"><span>06</span> Portfolio kit</a>
+        <a href="#cilj"><span>07</span> Incident sistem</a>
+        <a href="#dokazi"><span>08</span> Dokazi i izvori</a>
       </nav>
       <div class="side-bottom"><span class="live-dot"></span> OFFLINE PLAN<br><small>Napredak ostaje u ovom browseru</small></div>
     </aside>
@@ -89,6 +90,18 @@
           <article><span>GSTACK</span><h3>Razvojni kontrolni tok</h3><ol><li>Napiši spec i kriterijum prolaza; proveri arhitekturu uz <code>/plan-eng-review</code>.</li><li>Uradi malu izmenu, pokreni lokalne provere.</li><li>Upotrebi <code>/review</code> za nalaze na diffu.</li><li>Upotrebi <code>/qa-only</code> za read-only proveru API/CLI/UI ponašanja.</li><li><code>/ship</code> prouči tek kad znaš koji testovi i dozvole postoje.</li></ol><p>Zvanični README kaže da je vrednost u procesu i dokazima; njihov test nije pokazao veću stopu rešavanja bugova samo zato što je gstack instaliran.</p><a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer">Zvanični gstack README</a></article>
           <article><span>PSTACK / POTETO</span><h3>Skill nastaje iz greške</h3><ol><li>Reprodukuj problem i zabeleži šta agent nije razumeo.</li><li>Napravi uski verification skill i mapu funkcija aplikacije.</li><li>Testiraj skill na istorijskim zadacima i različitim modelima.</li><li>Širok izlaz drži u izolovanom kontekstu; glavnom agentu vrati sažetak i reference.</li><li>Pojačaj paralelizam tek kad jedan tok prolazi proveru.</li></ol><p>pstack dokumentacija opisuje <code>poteto-agent</code> i <code>Comment Sicko</code> kao vrste podagenata. To ne znači da svaki posao treba dva izvršavanja.</p><a href="https://github.com/cursor/plugins/blob/main/pstack/README.md" target="_blank" rel="noopener noreferrer">Zvanični pstack README</a></article>
         </div>
+      </section>
+
+      <section id="portfolio-kit" class="section content-section kit-section">
+        <div class="section-heading"><div><div class="kicker">DRUGI PORTFOLIO PROJEKAT / POSLE DANA 10</div><h2>Napravi Repo Scout Kit koji drugi mogu instalirati.</h2></div><p>Tri uska skilla za izbor relevantnih fajlova, proveru promene i PR nalaze. Prvo dokaži korist bez MCP-a; zatim dodaj lokalni read-only MCP samo ako rešava konkretan problem.</p></div>
+        <div class="kit-fast"><b>Prvu nedelju već znaš?</b><p>Sutra za 90 minuta prođi ubrzanu proveru: <code>npm test</code>, <code>git diff</code>, <code>rg "analyzeIncident" dist tests</code>, INC-02 i INC-12 u Lab-u. Ako svaki korak umeš da objasniš, nastavi Danom 6. Ako zapne, odradi taj dan redovno.</p></div>
+        <div class="kit-roadmap">
+          <article><small>KRAJ NEDELJE 2</small><h3>Problem i baseline</h3><p>Izaberi tri korisnička zadatka i izmeri koliko fajlova agent čita bez dodatka. Napiši šta tvoj alat neće raditi.</p></article>
+          <article><small>NEDELJE 3–4</small><h3>Skillovi i instalacija</h3><p>Napiši <code>repo-scout</code>, <code>change-verify</code> i <code>review-evidence</code>. Testiraj instalaciju iz čistog GitHub klona uz dry-run.</p></article>
+          <article><small>NEDELJA 5</small><h3>Paired eval</h3><p>Isti model, zadaci i početni SHA sa/bez paketa. Meri relevantne fajlove, promašaje, ukupne tokene, vreme i ishod.</p></article>
+          <article><small>NEDELJA 6</small><h3>MCP odluka</h3><p>Dodaj samo lokalni read-only <code>repo_map</code> i <code>changed_files</code> ako donose merljivu korist. Zabeleži rezultat i ograničenja.</p></article>
+        </div>
+        <p class="kit-cta"><a class="button primary" href="https://github.com/nokibuzz/agentic-harness-lab/blob/main/SKILL_KIT_PLAN.md" target="_blank" rel="noopener noreferrer">Otvori ceo plan za Repo Scout Kit</a><span>Cilj v0.1: instalacija iz GitHuba, ponovljiv demo i iskren pre/posle izveštaj.</span></p>
       </section>
 
       <section id="cilj" class="section content-section dark-section">

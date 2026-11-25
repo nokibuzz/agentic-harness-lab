@@ -8,6 +8,8 @@
 
 **Ako želiš dnevni raspored za svoj incident use case:** prati [Tvoj put — 8 nedelja i 40 dana](PUT.md). Ovaj factory plan ostaje dublji referentni materijal za evals, benchmark, routing i A/B kada stigneš do odgovarajućih dana.
 
+**Drugi portfolio cilj posle Dana 10:** [Repo Scout Kit](SKILL_KIT_PLAN.md) je plan za tvoj zaseban GitHub paket skillova; njegov eval koristi iste principe koje ovde učiš.
+
 ## Mapa
 
 | Red | Tema sa slike | Pitanje | Artefakt |
