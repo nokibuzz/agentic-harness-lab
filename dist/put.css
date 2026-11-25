@@ -5,3 +5,14 @@
 .path-model-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:25px}.path-model-ladder>div{border:1px solid #46634b;background:#1a3022;border-radius:6px;padding:18px}.path-model-ladder small{font:11px var(--mono);color:var(--lime)}.path-model-ladder b{display:block;font:600 18px var(--display);margin:13px 0 6px}.path-model-ladder p{font-size:13px;color:#afc4b1;margin:0}
 @media(max-width:1050px){.path-model-ladder{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.path-model-ladder{grid-template-columns:1fr}}
 .path-page{font-size:16px}.path-page .path-tracks p,.path-page .week-intro p,.path-page .day-goal,.path-page .day-blocks p,.path-page .day-gate p,.path-page .tool-compare li,.path-page .tool-compare p,.path-page .incident-contract p{font-size:16px}
+.path-page .week-tabs{grid-template-columns:repeat(4,1fr)}
+.path-page .path-milestones{grid-template-columns:repeat(4,1fr)}
+.day-walkthrough{margin:18px 0;padding:22px;background:#f8fbf3;border:1px solid #cbdcc7;border-radius:8px}
+.day-walkthrough h4{font:600 22px var(--display);margin:0 0 13px;color:#203d27}
+.day-walkthrough ol{margin:0;padding-left:24px}
+.day-walkthrough li{font-size:16px;line-height:1.55;margin:0 0 12px;color:#355342}
+.day-example{background:#e2f0dc;border-left:4px solid #548762;padding:14px 17px;margin-top:13px}
+.day-example b,.day-expect b{font:12px var(--mono);color:#305f3c}
+.day-example p,.day-expect{font-size:15px;line-height:1.5;color:#365744;margin:7px 0 0;overflow-wrap:anywhere}
+.day-expect{margin-top:15px}
+@media(max-width:720px){.path-page .week-tabs,.path-page .path-milestones{grid-template-columns:repeat(2,1fr)}.day-walkthrough{padding:16px}.day-walkthrough li{font-size:15px}}

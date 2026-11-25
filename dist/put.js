@@ -1,6 +1,7 @@
 const storageKey='harness-lab-put-v1';
 function loadProgress(){try{const value=JSON.parse(localStorage.getItem(storageKey)||'{}');return value&&typeof value==='object'?value:{}}catch{return {}}}
-let progress=loadProgress(),selectedWeek=0,openDay=1;
+const requestedWeek=Number(new URLSearchParams(location.search).get('week'));
+let progress=loadProgress(),selectedWeek=Number.isInteger(requestedWeek)&&requestedWeek>=1&&requestedWeek<=pathWeeks.length?requestedWeek-1:0,openDay=selectedWeek*5+1;
 const idSet=new Set(pathDays.map((_,index)=>index+1));
 const safe=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function saveProgress(){try{localStorage.setItem(storageKey,JSON.stringify(progress))}catch{}}
@@ -20,6 +21,12 @@ function renderWeek(){
     const n=selectedWeek*5+index+1,done=Boolean(progress[n]?.done),open=n===openDay;
     return `<article class="day-card ${done?'done':''} ${open?'open':''}" data-day="${n}"><button type="button" class="day-open" aria-expanded="${open}"><span class="day-number">DAN ${String(n).padStart(2,'0')}</span><b>${safe(day[0])}</b><span class="day-duration">2–3 h</span><span class="day-status">${done?'Završeno':'Čeka'}</span></button><div class="day-detail"><p class="day-goal"><strong>Ishod:</strong> ${safe(day[1])}</p><div class="day-blocks"><div><small>30 MIN · NAUČI</small><p>${safe(day[2])}</p></div><div><small>90 MIN · URADI</small><p>${safe(day[3])}</p></div><div><small>30 MIN · PROVERI</small><p>${safe(day[4])}</p></div></div><div class="day-gate"><div><b>ARTEFAKT</b><p>${safe(day[5])}</p></div><div><b>USLOV PROLAZA</b><p>${safe(day[6])}</p></div></div><p class="day-reference">Materijal: <a href="${safe(day[7])}" ${day[7].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''}>${safe(day[8])}</a></p><div class="day-evidence"><label>Gde je dokaz? Upiši putanju, link ili kratak opis.<input type="text" maxlength="300" data-evidence="${n}" placeholder="npr. notes/day-${n}.md ili commit SHA"></label><button type="button" data-complete="${n}">${done?'Vrati na čekanje':'Označi završeno'}</button></div><p class="day-feedback">${done?'Označeno na osnovu tvog dokaza.':'Za čekiranje upiši dokaz i proveri uslov prolaza.'}</p></div></article>`;
   }).join('');
+  document.querySelectorAll('.day-card').forEach(card=>{
+    const n=Number(card.dataset.day),guide=pathSteps[n-1],block=document.createElement('div');
+    block.className='day-walkthrough';
+    block.innerHTML=`<h4>Uradi tačno ovim redom</h4><ol>`+guide.steps.map(step=>`<li>`+safe(step)+`</li>`).join('')+`</ol><div class="day-example"><b>Kopiraj primer ili komandu</b><p>`+safe(guide.try)+`</p></div><p class="day-expect"><b>Šta treba da vidiš:</b> `+safe(guide.see)+`</p>`;
+    card.querySelector('.day-gate').before(block);
+  });
   document.querySelectorAll('.day-card').forEach(card=>{
     const n=Number(card.dataset.day),input=card.querySelector('[data-evidence]'),button=card.querySelector('[data-complete]');
     input.value=progress[n]?.evidence||'';

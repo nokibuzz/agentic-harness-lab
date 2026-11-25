@@ -50,6 +50,7 @@
 .week-body li{font-size:14px;line-height:1.5;color:#d2e2d3;margin:7px 0}
 .week-body p{font-size:14px;color:#b4cbb6;margin:0}
 .week-body b{color:var(--lime)}
+.week-body>a{display:inline-block;margin-top:14px;color:var(--lime);font-size:14px;text-decoration:underline;text-underline-offset:3px}
 .learning-note{font-size:14px;color:#adbeae;margin:21px 0 0}
 .learning-note a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
 .source-feature{background:#dfe9da;border:1px solid #ccddc6;border-radius:8px;padding:23px;margin-bottom:27px}

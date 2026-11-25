@@ -2,7 +2,7 @@
 
 Ovaj vodič dopunjuje [osmonedeljni factory plan](UCENJE.md). Factory upravlja događajem, tiketom, radom, proverom i merge politikom. Second brain upravlja poreklom izvora, izvedenim znanjem, upitima i ispravkama. Povezuju se preko **context packa pre trijaže/planiranja** i **potvrđene lekcije posle provere**. [Vizuelni drugi tab](https://nokibuzz.github.io/agentic-harness-lab/dist/second-brain.html).
 
-Za tvoj konkretan Confluence i incident scenario prati [dnevni plan od 30 dana](PUT.md), koji koristi ovu oblast u danima 11–15 i kasnije pri trijaži.
+Za tvoj konkretan Confluence i incident scenario prati [osmonedeljni kurs sa 40 dana](PUT.md), koji koristi ovu oblast u danima 11–15 i kasnije pri trijaži.
 
 ## Provera X objave
 

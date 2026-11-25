@@ -2,11 +2,11 @@
 
 **Cilj:** da umeš da projektuješ sistem koji meri rad coding agenata, predlaže poboljšanja, pošteno poredi konfiguracije i menja model routing na osnovu dokaza. Ovaj projekat je offline nastavni POC; ne gradi produkcionog agenta i ne povezuje tokene.
 
-**Ritam:** osam nedelja × četiri sesije × 60–90 minuta. Ako imaš manje vremena, zadrži redosled. Svaka nedelja završava fajlom koji možeš pregledati i konkretnim uslovom prolaza.
+**Status:** ovo je opciona dublja factory specijalizacija nakon ili uz [glavni osmonedeljni kurs](PUT.md). Njen ritam je osam tema × četiri kraće sesije; za početnika je primarni redosled 40 dana iz „Tvoj put“. Svaka tema ovde završava fajlom koji možeš pregledati i konkretnim uslovom prolaza.
 
 **Paralelna oblast:** [Second brain: četiri nedelje i 16 sesija](SECOND_BRAIN.md). Nije zamena za factory plan. U drugoj nedelji ovog plana možeš početi sa raw izvorima; pri trijaži i planiranju koristi proverljiv context pack. Posle verifikacije i mergea zapiši potvrđenu lekciju. Ticket, Git, CI i run log ostaju autoritativni za stanje rada.
 
-**Ako želiš dnevni raspored za svoj incident use case:** prati [Tvoj put — 30 dana](PUT.md). Ovaj factory plan ostaje dublji referentni materijal za evals, benchmark, routing i A/B kada stigneš do odgovarajućih dana.
+**Ako želiš dnevni raspored za svoj incident use case:** prati [Tvoj put — 8 nedelja i 40 dana](PUT.md). Ovaj factory plan ostaje dublji referentni materijal za evals, benchmark, routing i A/B kada stigneš do odgovarajućih dana.
 
 ## Mapa
 

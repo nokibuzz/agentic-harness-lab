@@ -72,18 +72,14 @@ function renderRun(){
 runSelect.addEventListener("change",renderRun);
 renderRun();
 
-const learningWeeks=[
-  {title:"Temelj u kodu",sessions:["Nacrtaj jedan bug → tiket → PR tok i odgovorne čvorove.","Napiši verzionisani factory/workflow.yaml bez tajni.","Definiši run_id, početni SHA, config verziju i stop uslove.","Prođi jedan ručni dry-run i zabeleži sve artefakte."],artifact:"factory/ definicija i mapa toka",gate:"Druga osoba može iz fajlova objasniti šta se pokreće i kada staje."},
-  {title:"Trace i baseline",sessions:["Napravi šemu run zapisa: zadatak, model, alati, status, trošak.","Prikupi ili sintetički napiši 10 raznovrsnih runova.","Razdvoji trace, diff, testove, screenshot i krajnji ishod.","Ručno označi uspeh i tri najčešće greške."],artifact:"runs.jsonl i baseline.md",gate:"Svaki run ima vezu ka početnom stanju i dokazivom ishodu."},
-  {title:"Online evals",sessions:["Odaberi dve dimenzije: ispravnost i suvišni testovi.","Napiši rubrike sa primerima ocena 0, 0,5 i 1.","Ručno označi još 20 runova, zatim simuliraj ili uporedi judge.","Izračunaj neslaganja; popravi rubriku, ne istorijske oznake."],artifact:"dve rubrike i labels.csv",gate:"Možeš pokazati najmanje pet neslaganja i razlog svakog."},
-  {title:"Self-improvement",sessions:["Grupiši najmanje pet ponovljenih neuspeha po uzroku.","Napiši jednu hipotezu o skill-u, alatu ili pravilu.","Predloži mali config diff i review kriterijume.","Replayuj stare i odvojene slučajeve; zabeleži regresije."],artifact:"jedan reviewable improvement PR nacrt",gate:"Predlog ima pre/posle dokaz i ne menja scorer koji ga ocenjuje."},
-  {title:"Benchmark",sessions:["Izaberi 12 zadataka iz tri klase i sačuvaj početni SHA.","Definiši dve konfiguracije koje se razlikuju u jednoj stvari.","Nacrtaj matricu zadatak × konfiguracija × 3 ponavljanja.","Izračunaj uspeh, vreme, trošak po uspehu i greške."],artifact:"benchmark manifest i izveštaj",gate:"Svaki zadatak je vraćen na isto početno stanje."},
-  {title:"Model routing",sessions:["Napravi taksonomiju: trijaža, jasna izmena, nejasan bug, review.","Poredi modele po benchmark rezultatima za svaku klasu.","Napiši pravila za izbor, fallback, budžet i eskalaciju.","Proveri routing na holdout zadacima."],artifact:"routing.yaml i odluke po klasama",gate:"Svaka ruta ima dokaz kvaliteta i troška, ne samo intuiciju."},
-  {title:"A/B eksperiment",sessions:["Zapiši hipotezu i jednu primarnu metriku pre početka.","Dodeli nove task ID-eve stabilno 50/50 A ili B.","Prati balans, kvalitet, cenu i regresije bez ranog zaključka.","Napiši odluku: usvoji, odbaci ili prikupi više podataka."],artifact:"A/B plan i decision log",gate:"Možeš odbraniti dodelu, metriku, trajanje i stop uslove."},
-  {title:"Capstone",sessions:["Poveži pet koraka u jedan graf merenja i poboljšanja.","Prođi izmišljeni incident od signala do evaluacije.","Predloži novu factory verziju i odradi replay poređenje.","Predstavi rezultate, granice i sledeći eksperiment."],artifact:"jedan pregledan case study",gate:"Razlikuješ dokazani ishod od scorer mišljenja i znaš kada zoveš čoveka."}
-];
+const learningWeeks=pathWeeks.map((week,index)=>({
+  title:week[0],
+  sessions:pathDays.slice(index*5,index*5+5).map((day,offset)=>'Dan '+(index*5+offset+1)+': '+day[0]+' — '+day[1]),
+  artifact:pathDays[index*5+4][5],
+  gate:pathDays[index*5+4][6]
+}));
 const weeksContainer=document.getElementById("learning-weeks");
-weeksContainer.innerHTML=learningWeeks.map((week,index)=>'<article class="learning-week '+(index===0?"open":"")+'"><button aria-expanded="'+(index===0?"true":"false")+'"><span>NEDELJA '+(index+1)+'</span><strong>'+week.title+'</strong><i>+</i></button><div class="week-body"><ol>'+week.sessions.map(session=>'<li>'+session+'</li>').join("")+'</ol><p><b>Artefakt:</b> '+week.artifact+'</p><p><b>Prolaz:</b> '+week.gate+'</p></div></article>').join("");
+weeksContainer.innerHTML=learningWeeks.map((week,index)=>'<article class="learning-week '+(index===0?"open":"")+'"><button aria-expanded="'+(index===0?"true":"false")+'"><span>NEDELJA '+(index+1)+'</span><strong>'+week.title+'</strong><i>+</i></button><div class="week-body"><ol>'+week.sessions.map(session=>'<li>'+session+'</li>').join("")+'</ol><p><b>Artefakt:</b> '+week.artifact+'</p><p><b>Prolaz:</b> '+week.gate+'</p><a href="./put.html?week='+(index+1)+'">Otvori pet detaljnih lekcija</a></div></article>').join("");
 weeksContainer.querySelectorAll(".learning-week button").forEach(button=>button.addEventListener("click",()=>{
   const item=button.closest(".learning-week");
   const open=item.classList.toggle("open");
